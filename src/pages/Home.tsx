@@ -1,10 +1,12 @@
+import { InfoCard } from "../components/pages/home";
 
 const Home = () => {
-  return (
-    <div>
-      Home
-    </div>
-  )
-}
 
-export default Home
+  return (
+    <>
+      <InfoCard />
+    </>
+  )
+};
+
+export default Home;

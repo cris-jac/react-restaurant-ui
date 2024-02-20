@@ -5,7 +5,8 @@ const theme = (paletteType: any) => createTheme({
         mode: paletteType,
         primary: {
             light: (paletteType === 'light') ? '#058B8B' : '#8ac0bf',
-            main: (paletteType === 'light') ? '#076761' : '#64A7A5',
+            main: (paletteType === 'light') ? '#076761' : 'rgba(193, 214, 213, 0.3)',
+            // main: (paletteType === 'light') ? '#076761' : '#64A7A5',
             dark: (paletteType === 'light') ? '#075B55' : '#4f9592',
             contrastText: (paletteType === 'light') ? '#fff' : '#000',
         },
@@ -22,12 +23,16 @@ const theme = (paletteType: any) => createTheme({
             contrastText: (paletteType === 'light') ? '#000' : '#000',
         },
         background: {
-          default: (paletteType === 'light') ? '#fafdf4' : '#272824'
+          default: (paletteType === 'light') ? '#fafdf4' : '#272824',
+
         },
         text: {
-            primary: (paletteType === 'light') ? '#257B75' : '#85b5b2',
-            secondary: (paletteType === 'light') ? '#5a6b3a' : '#D1DFB4'
-        }
+            primary: (paletteType === 'light') ? '#075B55' : '#85b5b2',
+            // secondary: (paletteType === 'light') ? '#84a549' : '#D1DFB4',
+            secondary: (paletteType === 'light') ? '#474747' : '#b2b2b2'
+        },
+        divider: (paletteType === 'light') ? '#D1DFB4' : '#ecf2e1',
+        
     },
     typography: {
         fontFamily: 'Piazzolla, sans-serif'

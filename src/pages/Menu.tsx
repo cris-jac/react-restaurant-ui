@@ -1,8 +1,11 @@
+import { MenuItemCard } from "../components/pages/menuItems"
 
 const Menu = () => {
   return (
     <div>
-      Menu
+      MenuItems
+      
+      <MenuItemCard/>
     </div>
   )
 }
