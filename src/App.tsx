@@ -12,20 +12,24 @@ function App() {
     <ThemeProvider theme={paletteType}>
       <CssBaseline/>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/shoppingCart" element={<ShoppingCart />} />
-        <Route
-          path="/menuItemDetails/:menuItemId"
-          element={<MenuItemDetails />}
-        />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div style={{
+        minHeight: '100vh'
+      }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/shoppingCart" element={<ShoppingCart />} />
+          <Route
+            path="/menuItemDetails/:menuItemId"
+            element={<MenuItemDetails />}
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
       <Footer />
     </ThemeProvider>
   );

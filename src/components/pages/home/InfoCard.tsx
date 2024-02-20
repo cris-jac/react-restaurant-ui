@@ -8,16 +8,19 @@ const InfoCard = () => {
     const localTheme = {
       container: {
         border: "1px solid rgba(0,0,0)",    // Remove prop
+        bgcolor: "none"
       },
       card: {
         display: "flex",
         borderRadius: "0px",
         position: "relative",
-        bgcolor: "rgba(0, 0, 0, 0)",
+        bgcolor: "rgba(0,0,0,0)",
         border: "none",
+        backgroundImage: "none",
         boxShadow: "none",
         maxWidth: "100%",
         padding: "20px",
+        gap: "20px",
         flexDirection: isSmScreen ? 'column' : 'row',
         justifyItems: 'center',
         alignItems: isSmScreen ? 'center' : 'flex-start',
@@ -25,6 +28,7 @@ const InfoCard = () => {
       cardMedia: {
         borderRadius: "0px",
         width: "300px",
+        filter: "saturate(80%)",
       },
       box: {
         display: "flex",
@@ -33,27 +37,29 @@ const InfoCard = () => {
       },
       cardContent: {
         position: "relative",
+        padding: "0px"
       },
       title: {
         position: "relative",
-        paddingBottom: "30px",
-        color: "black",
+        // paddingTop: "10px",
+        paddingBottom: "20px",
+        color: theme.palette.primary.contrastText,
         zIndex: "0",
         ":after": {
           content: '""',
           position: "absolute",
           width: "120px",
           height: "20px",
-          bgcolor: "#C2D6D0",
+          bgcolor: theme.palette.secondary.main,  //"#C2D6D0",
           top: "15px",
           left: "15px",
           zIndex: "-1",
         },
       },
       paragraph: {
-        bgcolor: "#C2D6D0",
+        bgcolor: theme.palette.secondary.dark,
         padding: "4px 20px 4px 20px",
-        color: "black",
+        color: theme.palette.secondary.contrastText
       }
     };
   

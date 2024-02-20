@@ -4,23 +4,22 @@ const theme = (paletteType: any) => createTheme({
     palette: {
         mode: paletteType,
         primary: {
-            light: (paletteType === 'light') ? '#058B8B' : '#8ac0bf',
-            main: (paletteType === 'light') ? '#076761' : 'rgba(193, 214, 213, 0.3)',
-            // main: (paletteType === 'light') ? '#076761' : '#64A7A5',
-            dark: (paletteType === 'light') ? '#075B55' : '#4f9592',
-            contrastText: (paletteType === 'light') ? '#fff' : '#000',
+            light: (paletteType === 'light') ? '#85ADA1' : '#303634',
+            main: (paletteType === 'light') ? 'rgba(0,0,0,0.4)' : 'rgba(0, 0, 0, 0.2)',
+            dark: (paletteType === 'light') ? '#85ADA1' : 'rgba(0,0,0,0)',
+            contrastText: (paletteType === 'light') ? '#000' : '#fff',      // updated
         },
         secondary: {
-            light: (paletteType === 'light') ? '#c8d9a5' : '#ecf2e1',
-            main: (paletteType === 'light') ? '#A2BF69' : '#D1DFB4',
-            dark: (paletteType === 'light') ? '#84a549' : '#94b459',
-            contrastText: (paletteType === 'light') ? '#000' : '#000',
+            light: (paletteType === 'light') ? '#C2D6D0' : '#303634',
+            main: (paletteType === 'light') ? '#C2D6D0' : '#85ADA1',
+            dark: (paletteType === 'light') ? '#C2D6D0' : 'rgba(0,0,0,0)',
+            contrastText: (paletteType === 'light') ? '#000' : '#C2D6D0',   // updated
         },
         info: {
-            light: (paletteType === 'light') ? '#737373' : '#b2b2b2',
+            light: (paletteType === 'light') ? '#FFFFFF' : '#303634',
             main: (paletteType === 'light') ? '#5f5f5f' : '#878787',
             dark: (paletteType === 'light') ? '#474747' : '#727272',
-            contrastText: (paletteType === 'light') ? '#000' : '#000',
+            contrastText: (paletteType === 'light') ? '#FFF' : '#C2D6D0',
         },
         background: {
           default: (paletteType === 'light') ? '#fafdf4' : '#272824',
@@ -29,13 +28,51 @@ const theme = (paletteType: any) => createTheme({
         text: {
             primary: (paletteType === 'light') ? '#075B55' : '#85b5b2',
             // secondary: (paletteType === 'light') ? '#84a549' : '#D1DFB4',
-            secondary: (paletteType === 'light') ? '#474747' : '#b2b2b2'
+            secondary: (paletteType === 'light') ? '#85ADA1' : '#C2D6D0'
         },
-        divider: (paletteType === 'light') ? '#D1DFB4' : '#ecf2e1',
+        divider: (paletteType === 'light') ? '#272824' : '#fafdf4',
         
     },
     typography: {
-        fontFamily: 'Piazzolla, sans-serif'
+        fontFamily: 'Piazzolla, sans-serif',
+        h1: {
+            fontFamily: 'Piazzolla, sans-serif',
+            fontSize: '28px'
+        },
+        h2: {
+            fontFamily: 'Piazzolla, sans-serif',
+            fontSize: '24px'
+        },
+        h3: {
+            fontFamily: 'Piazzolla, sans-serif',
+            fontSize: '22px'
+        },
+        h4: {
+            fontFamily: 'Piazzolla, sans-serif',
+            fontSize: '20px'
+        },
+        h5: {
+            fontFamily: 'Piazzolla, sans-serif',
+            fontSize: '18px'
+        },
+
+        button: {
+            fontFamily: 'Sarabun, sans-serif',
+            fontSize: '20px',
+            fontWeight: 'bold'
+        },
+        body1: {
+            fontFamily: 'Sarabun, sans-serif',
+            fontSize: '20px'
+        },
+        body2: {
+            fontFamily: 'Sarabun, sans-serif',
+            fontSize: '18px'
+        },
+        overline: {
+            fontFamily: 'Sarabun, sans-serif',
+            fontSize: '12px'
+        }
     }
 });
 
@@ -79,3 +116,40 @@ export default theme;
 //     },
 //     // spacing: ["0", "4px", "8px", "16px", "32px", "64px"],
 //   });
+
+
+
+// palette: {
+//     mode: paletteType,
+//     primary: {
+//         light: (paletteType === 'light') ? '#058B8B' : '#8ac0bf',
+//         main: (paletteType === 'light') ? '#076761' : 'rgba(193, 214, 213, 0.3)',
+//         // main: (paletteType === 'light') ? '#076761' : '#64A7A5',
+//         dark: (paletteType === 'light') ? '#85ADA1' : 'rgba(0,0,0,0)',
+//         contrastText: (paletteType === 'light') ? '#000' : '#fff',      // updated
+//     },
+//     secondary: {
+//         light: (paletteType === 'light') ? '#c8d9a5' : '#ecf2e1',
+//         // main: (paletteType === 'light') ? '#A2BF69' : '#D1DFB4',
+//         main: (paletteType === 'light') ? '#A2BF69' : '#D1DFB4',
+//         dark: (paletteType === 'light') ? '#84a549' : '#94b459',
+//         contrastText: (paletteType === 'light') ? '#000' : '#C2D6D0',   // updated
+//     },
+//     info: {
+//         light: (paletteType === 'light') ? '#737373' : '#b2b2b2',
+//         main: (paletteType === 'light') ? '#5f5f5f' : '#878787',
+//         dark: (paletteType === 'light') ? '#474747' : '#727272',
+//         contrastText: (paletteType === 'light') ? '#000' : '#000',
+//     },
+//     background: {
+//       default: (paletteType === 'light') ? '#fafdf4' : '#272824',
+
+//     },
+//     text: {
+//         primary: (paletteType === 'light') ? '#075B55' : '#85b5b2',
+//         // secondary: (paletteType === 'light') ? '#84a549' : '#D1DFB4',
+//         secondary: (paletteType === 'light') ? '#474747' : '#b2b2b2'
+//     },
+//     divider: (paletteType === 'light') ? '#D1DFB4' : '#ecf2e1',
+    
+// },

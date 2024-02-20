@@ -1,42 +1,89 @@
-import { Button, Card, CardActionArea, CardMedia, Container, Typography } from "@mui/material"
+import { Avatar, Box, Card, CardActionArea, CardMedia, IconButton, Typography, useTheme } from "@mui/material"
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import image from "../../../../public/images/items/farhad-ibrahimzade-59lfMHMZugY-unsplash_1_11zon.jpg"
+import { useState } from "react";
 
 
 const MenuItemCard = () => {
+
+  // Styling
+  const { palette } = useTheme();
+
+  const localTheme = {
+    card: { 
+      maxWidth: 240, 
+      backgroundColor: 'rgba(0,0,0,0)', 
+      textAlign: 'center' ,
+      boxShadow: 'none',
+      borderRadius: '0',
+      backgroundImage: 'none',
+      position: 'relative'
+    },
+    cardMedia: { 
+      borderRadius: "0",
+      filter: 'saturate(70%)',
+      ":hover": {
+          filter: 'saturate(100%)',
+      }
+  },
+  box: {
+    padding: '10px 5px',
+          border: '1px solid',
+          borderColor: palette.divider
+  }
+
+  }
+
+  const [IsOnCart, setIsOnCart] = useState<boolean>(false);
+
   return (
-      <Card sx={{ 
-        maxWidth: 345, 
-        backgroundColor: 'rgba(0,0,0,0)', 
-        textAlign: 'center' ,
-        boxShadow: 'none',
-        borderRadius: '1%',
-        backgroundImage: 'none',
-        // padding: '10px'
-      }}>
-        <CardActionArea sx={{ 
-            // borderRadius: '10%' 
-            // padding: '10px'
-        }}>
+      <Card sx={
+        localTheme.card
+      }>
+        <CardActionArea>
           <CardMedia
             component="img"
-            height="345"
+            height="240"
             image={image}
             alt="green iguana"
-            sx={{ 
-                borderRadius: "1%",
-                filter: 'saturate(80%)',
-                ":hover": {
-                    // borderRadius: '0',
-                    transition: 'all 0.3s ease-in-out',
-                    filter: 'saturate(100%)',
-                    transform: 'scale(1.05)'
-                }
-            }}
+            sx={
+              localTheme.cardMedia
+            }
           />
         </CardActionArea>
-        <Typography variant="h5" color='text.secondary' sx={{ paddingTop: '10px' }}>$ 3434</Typography>
-        <Typography variant="h6" color='text.primary'>Jugo de tomate frio al vapor</Typography>
-        <Button>Add To Cart</Button>
+        <Box sx={
+          localTheme.box
+        }>
+          <Typography variant="h5" color={palette.primary.contrastText}>Jugo de tomate frio al vapor</Typography>
+          <Typography variant="h4" color={palette.text.secondary}>$ 3434</Typography>
+        </Box>
+        <Avatar 
+          onClick={() => setIsOnCart(!IsOnCart)} 
+          sx={{ 
+            // overflow: 'hidden',
+            position: "absolute",
+            top: '5px',
+            right: '10px',
+            zIndex: '1',
+            backgroundColor: palette.background.default,
+            borderRadius: '0px',
+            border: '1px solid',
+            borderColor: palette.divider,
+          }}
+        >
+          <IconButton sx={{ margin: "10px" }}>
+            {IsOnCart ? (
+              <AddShoppingCartIcon sx={{ 
+                color: "#85ADA1", 
+              }}/>
+            ) : (
+              <ShoppingCartIcon sx={{ 
+                color: "#85ADA1", 
+              }}/>
+            )}
+          </IconButton>
+        </Avatar>
       </Card>
   );
 }
