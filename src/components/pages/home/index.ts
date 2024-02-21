@@ -1,3 +1,5 @@
 import InfoCard from "./InfoCard";
+import IconBanner from "./IconBanner";
+import ImageBanner from "./ImageBanner";
 
-export { InfoCard }
+export { InfoCard, IconBanner, ImageBanner }

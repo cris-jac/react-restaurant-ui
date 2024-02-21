@@ -1,5 +1,6 @@
-import logo from "/images/LastLogo2.png"
-import { AppBar, Box, Container, List, Toolbar } from "@mui/material"
+import logo from "./../../assets/LastLogo1.png"
+import logoMini from "./../../assets/LastLogo3.png"
+import { AppBar, Box, Container, List, Toolbar, useMediaQuery, useTheme } from "@mui/material"
 import NavigationButton from "./NavigationButton"
 
 const links = [
@@ -10,6 +11,9 @@ const links = [
 ]
 
 const Header = () => {
+    const { breakpoints } = useTheme();
+    const isSmScreen = useMediaQuery(breakpoints.down("sm"));
+
   return (
     <AppBar 
         position="static" 
@@ -26,7 +30,8 @@ const Header = () => {
                 alignItems:'space-center', 
                 justifyContent: 'space-between'
             }} >
-                <NavigationButton path="/" img={logo} />
+                <NavigationButton path="/" img={isSmScreen ? logoMini : logo} />
+
                 <Box>
                     <List 
                         sx={{ alignItems: 'center' }}

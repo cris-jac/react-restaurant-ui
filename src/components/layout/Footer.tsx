@@ -11,7 +11,7 @@ import {
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
-import logo from "../../../public/images/LastLogo1.png";
+import logo from "./../../assets/LastLogo1.png";
 import NavigationButton from "./NavigationButton";
 
 const links = [

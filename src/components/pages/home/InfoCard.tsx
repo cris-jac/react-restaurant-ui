@@ -1,5 +1,5 @@
 import { useMediaQuery, Container, Card, CardMedia, Box, CardContent, Typography, useTheme } from '@mui/material';
-import image from "../../../../public/images/dan-meyers-0AgtPoAARtE-unsplash_1_11zon.jpg"
+import image from "./../../../assets/ibrahim-boran-R8fLxanhOQY-unsplash_5_11zon.jpg"
 
 const InfoCard = () => {
     const theme = useTheme();
@@ -7,7 +7,7 @@ const InfoCard = () => {
   
     const localTheme = {
       container: {
-        border: "1px solid rgba(0,0,0)",    // Remove prop
+        // border: "1px solid rgba(0,0,0)",    // Remove prop
         bgcolor: "none"
       },
       card: {

@@ -1,8 +1,15 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { MenuItemModel } from "../../../interfaces";
 
-const Details = () => {
+interface Props {
+  item: MenuItemModel
+}
+
+const Details = ({ item }: Props) => {
+
+  // Styling
   const { palette } = useTheme();
 
   const typo = {
@@ -14,7 +21,7 @@ const Details = () => {
   return (
     <Box maxWidth="xs" sx={{ p: "4px" }}>
       <Typography variant="h3" gutterBottom sx={typo}>
-        Lorem ipsum dolor sit amet.
+        {item.name}
       </Typography>
       <Typography
         gutterBottom
@@ -27,12 +34,10 @@ const Details = () => {
           borderLeft: "4px solid #85ada1",
         }}
       >
-        $ 2333.23
+        $ {item.priceInUSD}
       </Typography>
       <Typography gutterBottom variant="body2" sx={typo}>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa porro at
-        eos voluptatibus quos accusantium ducimus sunt, deleniti ad? Consequatur
-        iure eaque eius nemo praesentium.
+        {item.description}
       </Typography>
 
       <Box

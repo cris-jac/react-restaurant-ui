@@ -6,7 +6,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "./theme";
 
 function App() {
-  const paletteType = theme('light')
+  const paletteType = theme('dark')
 
   return (
     <ThemeProvider theme={paletteType}>
