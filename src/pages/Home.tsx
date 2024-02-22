@@ -41,7 +41,7 @@ const Home = () => {
         if (!itemMapped[item.category]) {
           itemMapped[item.category] = true;
           FilteredArray.push({ name: item.category, picture: item.image });
-          console.log(FilteredArray);
+          // console.log(FilteredArray);
         }
       });
     }

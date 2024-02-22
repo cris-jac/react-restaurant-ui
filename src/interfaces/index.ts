@@ -1,4 +1,6 @@
 import BannerItemModel from "./BannerItemModel";
 import MenuItemModel from "./MenuItemModel";
+import CartItemModel from "./CartItemModel";
+import ShoppingCartModel from "./ShoppingCartModel";
 
-export { BannerItemModel, MenuItemModel }
+export type { BannerItemModel, MenuItemModel, CartItemModel, ShoppingCartModel }

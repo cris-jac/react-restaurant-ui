@@ -9,10 +9,15 @@ import {
   useTheme,
 } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+// import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 // import image from "../../../../public/images/items/farhad-ibrahimzade-59lfMHMZugY-unsplash_1_11zon.jpg"
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useUpdateShoppingCartMutation } from "../../../api/shoppingCartApi";
+import ApiResponseModel from "../../../interfaces/ApiResponseModel";
+// import toastNotify from "../../../helpers/useStyledToast";
+import useStyledToast from "../../../helpers/useStyledToast";
 // import { MenuItemModel } from "../../../interfaces";
 
 interface Props {
@@ -60,7 +65,33 @@ const MenuItemCard = ({ name, price, img, id }: Props) => {
     }
   };
 
-  const [IsOnCart, setIsOnCart] = useState<boolean>(false);
+  // Toast
+  const toastNotify = useStyledToast();
+
+  // Manage Add to cart
+  // Id hardcoded
+  const userId = "abd83cf0-2b6a-49a9-9965-568ec7d4cdf3";
+  // Declare Api request
+  const [updateShoppingCart] = useUpdateShoppingCartMutation();
+  // 
+  const handleAddToCart = async (menuItemId: number) => {
+    const response: ApiResponseModel = await updateShoppingCart({
+      menuItemId: menuItemId,
+      userId: userId,
+      updateQuantityBy: 1
+    })
+
+    if (response.data && response.data.isSuccess) {
+      // console.log("Great success")
+      toastNotify("Item added to cart successfully!");
+      // setIsOnCart(true);
+    } else {
+      console.log(JSON.stringify(response.data?.errorMessages))
+    }
+  }
+
+
+  // const [IsOnCart, setIsOnCart] = useState<boolean>(false);
 
   return (
     <Card sx={localTheme.card}>
@@ -90,23 +121,26 @@ const MenuItemCard = ({ name, price, img, id }: Props) => {
         </Typography>
       </Box>
       <Avatar
-        onClick={() => setIsOnCart(!IsOnCart)}
+        onClick={() => handleAddToCart(id)}
         sx={localTheme.avatar}
       >
         <IconButton sx={{ margin: "10px" }}>
-          {IsOnCart ? (
-            <AddShoppingCartIcon
-              sx={{
-                color: "#85ADA1",
-              }}
-            />
-          ) : (
+          <AddShoppingCartIcon
+            sx={{ color: "#85ada1" }}
+          />
+          {/* {IsOnCart ? (
             <ShoppingCartIcon
               sx={{
                 color: "#85ADA1",
               }}
             />
-          )}
+          ) : (
+            <AddShoppingCartIcon
+              sx={{
+                color: "#85ADA1",
+              }}
+            />
+          )} */}
         </IconButton>
       </Avatar>
     </Card>

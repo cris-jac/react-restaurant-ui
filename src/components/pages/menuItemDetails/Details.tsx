@@ -2,6 +2,11 @@ import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { MenuItemModel } from "../../../interfaces";
+import { useState } from "react";
+import { useUpdateShoppingCartMutation } from "../../../api/shoppingCartApi";
+import { useNavigate } from "react-router-dom";
+import ApiResponseModel from "../../../interfaces/ApiResponseModel";
+import useStyledToast from "../../../helpers/useStyledToast";
 
 interface Props {
   item: MenuItemModel
@@ -10,7 +15,7 @@ interface Props {
 const Details = ({ item }: Props) => {
 
   // Styling
-  const { palette } = useTheme();
+  const { palette, typography } = useTheme();
 
   const typo = {
     padding: "0px 20px",
@@ -18,33 +23,75 @@ const Details = ({ item }: Props) => {
     color: palette.primary.contrastText,
   };
 
+  // hook: navigate
+  const navigate = useNavigate();
+  // hook: toastNotify
+  const toastNotify = useStyledToast();
+  // get set quantity
+  const [quantity, setQuantity] = useState(1);
+  // Define Api mutation 
+  const [updateShoppingCart] = useUpdateShoppingCartMutation();
+  // Update user Id
+  const userId = "abd83cf0-2b6a-49a9-9965-568ec7d4cdf3";
+
+  // Manage changes in quantity
+  const handleQuantity = (counter: number) => {
+    let newQuantity = quantity + counter;
+    if (newQuantity == 0) {
+      newQuantity = 1;
+    }
+    setQuantity(newQuantity);
+    return;
+  } 
+
+  //
+  const handleUpdateCart = async(menuItemId: number) => {
+    // If user is not logged in
+    if (!userId) {
+      navigate('/login');
+      return;
+    }
+    // Make mutations
+    const response: ApiResponseModel = await updateShoppingCart({
+      menuItemId: menuItemId,
+      updateQuantityBy: quantity,
+      userId: userId
+    })
+    // Check response
+    if (response.data && response.data.isSuccess) {
+      toastNotify("Item added to card successfully");
+    }
+  }
+
   return (
     <Box maxWidth="xs" sx={{ p: "4px" }}>
-      <Typography variant="h3" gutterBottom sx={typo}>
+      <Typography variant="h3" sx={typo} marginBottom={2} >
         {item.name}
       </Typography>
       <Typography
-        gutterBottom
-        variant="h4"
+        // gutterBottom
+        variant="h3"
+        marginBottom={2}
         color="rgba(0,0,0,0)"
         sx={{
           padding: "0px 20px",
           bgcolor: "#85ada1",
           color: palette.background.default,
           borderLeft: "4px solid #85ada1",
+          // textAlign: 'left'
         }}
       >
         $ {item.priceInUSD}
       </Typography>
-      <Typography gutterBottom variant="body2" sx={typo}>
+      <Typography marginBottom={2} variant="body1" sx={typo}>
         {item.description}
       </Typography>
 
       <Box
-        marginBottom={1}
+        marginBottom={2}
         sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
       >
-        <Typography variant="body2" sx={typo}>
+        <Typography variant="body1" sx={typo}>
           Cantidad
         </Typography>
         <Box
@@ -62,6 +109,7 @@ const Details = ({ item }: Props) => {
               borderRadius: "0px",
               padding: "4px",
             }}
+            onClick={() => handleQuantity(-1)}
           >
             <RemoveIcon
               sx={{
@@ -72,7 +120,7 @@ const Details = ({ item }: Props) => {
           <span
             style={{
               backgroundColor: palette.background.default,
-              fontSize: palette.secondary.light,
+              fontSize: typography.body1.fontSize,
 
               borderColor: "#85ada1",
               width: "40px",
@@ -80,7 +128,7 @@ const Details = ({ item }: Props) => {
               color: palette.primary.contrastText,
             }}
           >
-            10
+            {quantity}
           </span>
 
           <IconButton
@@ -89,6 +137,7 @@ const Details = ({ item }: Props) => {
               borderRadius: "0px",
               padding: "4px",
             }}
+            onClick={() => handleQuantity(+1)}
           >
             <AddIcon
               sx={{
@@ -100,15 +149,19 @@ const Details = ({ item }: Props) => {
       </Box>
       <Button
         sx={{
-          bgcolor: palette.primary.dark,
           border: "2px solid",
-          borderColor: "#85ada1",
-          color: palette.secondary.main,
+          borderRadius: '1px',
+          marginTop: 1,
+          paddingX: 3,
+          borderColor: palette.text.secondary,
+          color: palette.text.secondary,
+          bgcolor: palette.info.light,
           ":hover": {
-            bgcolor: "#85ada1",
-            color: "white",
-          },
+            color: palette.info.light,
+            bgcolor: palette.text.secondary,
+          }
         }}
+        onClick={() => handleUpdateCart(item.id)}
       >
         Aniadir al carro
       </Button>

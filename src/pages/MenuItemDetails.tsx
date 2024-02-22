@@ -1,7 +1,7 @@
 import { Details } from "../components/pages/menuItemDetails";
 // import image from "../assets/hannah-busing-0BhSKStVtdM-unsplash_3_11zon.jpg";
 import { Box, Grid } from "@mui/material";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useGetMenuItemQuery } from "../api/menuItemApi";
 
 const MenuItemDetails = () => {

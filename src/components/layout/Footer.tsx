@@ -59,6 +59,7 @@ const Footer = () => {
     },
     icon: {
       color: primaryText, //black
+      fontSize: '20px'
     },
   };
 

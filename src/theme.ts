@@ -58,16 +58,26 @@ const theme = (paletteType: any) => createTheme({
 
         button: {
             fontFamily: 'Sarabun, sans-serif',
+            fontSize: '18px',
+            fontWeight: 'semibold'
+        },
+        subtitle1: {
+            fontFamily: 'Sarabun, sans-serif',
             fontSize: '20px',
-            fontWeight: 'bold'
+            fontWeight: 'medium'
+        },
+        subtitle2: {
+            fontFamily: 'Sarabun, sans-serif',
+            fontSize: '18px',
+            fontWeight: 'medium'
         },
         body1: {
             fontFamily: 'Sarabun, sans-serif',
-            fontSize: '20px'
+            fontSize: '16px'
         },
         body2: {
             fontFamily: 'Sarabun, sans-serif',
-            fontSize: '18px'
+            fontSize: '14px'
         },
         overline: {
             fontFamily: 'Sarabun, sans-serif',
