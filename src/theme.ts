@@ -57,11 +57,15 @@ const theme = (paletteType: any) => createTheme({
             fontFamily: 'Piazzolla, sans-serif',
             fontSize: '18px'
         },
+        h6: {
+            fontFamily: 'Piazzolla, sans-serif',
+            fontSize: '18px'
+        },
 
         button: {
             fontFamily: 'Sarabun, sans-serif',
             fontSize: '18px',
-            fontWeight: 'semibold'
+            fontWeight: '600'
         },
         subtitle1: {
             fontFamily: 'Sarabun, sans-serif',

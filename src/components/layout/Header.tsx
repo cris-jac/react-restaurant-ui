@@ -21,14 +21,18 @@ const Header = () => {
             backgroundColor: palette.info.main,
             paddingTop: '6px',
             paddingBottom: '6px',
-            marginBottom: '48px'
+            marginBottom: '48px',
+            background: 'none'
         }}
     >
-        <Container>
+        <Container
+        //  sx={{ background:"none" }}
+         >
             <Toolbar sx={{ 
                 display: 'flex', 
                 alignItems:'space-center', 
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                // background:"none"
             }} >
                 <NavigationButton path="/" img={isSmScreen ? logoMini : logo} />
 

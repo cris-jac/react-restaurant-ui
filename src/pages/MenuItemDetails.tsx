@@ -23,17 +23,23 @@ const MenuItemDetails = () => {
       ) : (
         <Grid container spacing={2} maxWidth="xl">
           <Grid item xs={12} sm={7}>
+          <Box sx={{ 
+              aspectRatio: 10 / 10, 
+              borderRight: "4px solid",
+              borderColor: "#85ada1", 
+            }}>
             <img
               src={`http://localhost:5173/${data.result.image}`}
               style={{
-                border: "4px 0px 0px 0px solid",
-                borderColor: "#85ada1",
                 width: "100%",
-                // objectFit: 'contain'
+                height: "100%",
+                objectFit: 'cover'
               }}
               loading="lazy"
             />
+            </Box>
           </Grid>
+
 
           <Grid item xs={12} sm={5}>
             <Details item={data.result}/>

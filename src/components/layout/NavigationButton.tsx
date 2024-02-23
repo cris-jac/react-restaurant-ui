@@ -1,4 +1,4 @@
-import { Button, useMediaQuery, useTheme } from "@mui/material"
+import { Button, Typography, useMediaQuery, useTheme } from "@mui/material"
 import { NavLink } from "react-router-dom"
 
 
@@ -11,22 +11,25 @@ interface Props {
 const NavigationButton = ({ path, label, img }: Props) => {
 
     // Styling
-    const theme = useTheme();
-    const h5 = theme.typography.h5;
-    const h3 = theme.typography.h3;
-    const textColor = theme.palette.primary.contrastText;
-    const isSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
+    const { palette, typography, breakpoints } = useTheme();
+    const h5 = typography.h5;
+    const h3 = typography.h3;
+    const textColor = palette.primary.contrastText;
+    const isSmScreen = useMediaQuery(breakpoints.down("sm"));
     
     const localStyle = {
         button: {
             mx: 1, 
             textTransform: 'capitalize',
             color: textColor,
-            fontSize: isSmScreen ? h5 : h3,
             padding: '6px',
             ":hover": {
-                color: 'palette.text.secondary'
+                color: palette.secondary.contrastText,
+                backgroundColor: 'rgba(0,0,0,0)',
             }
+        },
+        label: {
+            fontSize: isSmScreen ? h5 : h3,
         }
     }
 
@@ -35,7 +38,7 @@ const NavigationButton = ({ path, label, img }: Props) => {
         <Button size="small" sx={localStyle.button}>
             {img ? 
             <img src={img} height={60} /> : 
-            label}
+            <Typography sx={localStyle.label}>{label}</Typography>}
         </Button>
     </NavLink>
   )
