@@ -11,14 +11,14 @@ const links = [
 ]
 
 const Header = () => {
-    const { breakpoints } = useTheme();
+    const { palette, breakpoints } = useTheme();
     const isSmScreen = useMediaQuery(breakpoints.down("sm"));
 
   return (
     <AppBar 
         position="static" 
         style={{ 
-            // backgroundColor: 'rgba(0,0,0,0.2)',
+            backgroundColor: palette.info.main,
             paddingTop: '6px',
             paddingBottom: '6px',
             marginBottom: '48px'

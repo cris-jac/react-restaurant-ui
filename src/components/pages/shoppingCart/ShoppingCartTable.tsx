@@ -14,7 +14,7 @@ import {
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ClearIcon from "@mui/icons-material/Clear";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useUpdateShoppingCartMutation } from "../../../api/shoppingCartApi";
 // import { RootState } from "../../../storage/redux/store";
 import { CartItemModel } from "../../../interfaces";
@@ -22,6 +22,8 @@ import {
   removeFromCart,
   updateQuantity,
 } from "../../../storage/redux/cartItemSlice";
+import UserModel from "../../../interfaces/UserModel";
+import { RootState } from "../../../storage/redux/store";
 
 interface Props {
   items: CartItemModel[];
@@ -50,7 +52,8 @@ const ShoppingCartTable = ({ items }: Props) => {
   // Api mutation cart
   const [updateShoppingCart] = useUpdateShoppingCartMutation();
   // UserId hardcoded
-  const userId = "abd83cf0-2b6a-49a9-9965-568ec7d4cdf3";
+  // const userId = "abd83cf0-2b6a-49a9-9965-568ec7d4cdf3";
+  const userData: UserModel = useSelector((state: RootState) => state.userAuthStore);
 
   // Store get state
   // const { cartItems } = useSelector((state: RootState) => state.shoppingCartStore);
@@ -71,7 +74,7 @@ const ShoppingCartTable = ({ items }: Props) => {
       updateShoppingCart({
         menuItemId: cartItem.menuItem.id,
         updateQuantityBy: 0,
-        userId: userId,
+        userId: userData.id //userId,
       });
     } else {
       // Store update quantity
@@ -85,7 +88,7 @@ const ShoppingCartTable = ({ items }: Props) => {
       updateShoppingCart({
         menuItemId: cartItem.menuItem.id,
         updateQuantityBy: updateQuantityBy,
-        userId: userId,
+        userId: userData.id  //userId,
       });
     }
   };

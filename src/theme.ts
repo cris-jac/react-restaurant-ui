@@ -5,7 +5,8 @@ const theme = (paletteType: any) => createTheme({
         mode: paletteType,
         primary: {
             light: (paletteType === 'light') ? '#85ADA1' : '#303634',
-            main: (paletteType === 'light') ? 'rgba(0,0,0,0.4)' : 'rgba(0, 0, 0, 0.2)',
+            // main: (paletteType === 'light') ? 'rgba(0,0,0,0.4)' : 'rgba(0, 0, 0, 0.2)',
+            main: (paletteType === 'light') ? '#272824' : '#fafdf4',
             dark: (paletteType === 'light') ? '#85ADA1' : 'rgba(0,0,0,0)',
             contrastText: (paletteType === 'light') ? '#000' : '#fff',      // updated
         },
@@ -17,7 +18,7 @@ const theme = (paletteType: any) => createTheme({
         },
         info: {
             light: (paletteType === 'light') ? '#FFFFFF' : '#303634',
-            main: (paletteType === 'light') ? '#5f5f5f' : '#878787',
+            main: (paletteType === 'light') ? 'rgba(0,0,0,0.4)' : 'rgba(0, 0, 0, 0.2)',
             dark: (paletteType === 'light') ? '#474747' : '#727272',
             contrastText: (paletteType === 'light') ? '#FFF' : '#C2D6D0',
         },
@@ -26,7 +27,8 @@ const theme = (paletteType: any) => createTheme({
 
         },
         text: {
-            primary: (paletteType === 'light') ? '#075B55' : '#85b5b2',
+            // primary: (paletteType === 'light') ? '#075B55' : '#85b5b2',
+            primary: (paletteType === 'light') ? '#272824' : '#fafdf4',
             // secondary: (paletteType === 'light') ? '#84a549' : '#D1DFB4',
             secondary: (paletteType === 'light') ? '#85ADA1' : '#C2D6D0'
         },
@@ -83,7 +85,17 @@ const theme = (paletteType: any) => createTheme({
             fontFamily: 'Sarabun, sans-serif',
             fontSize: '12px'
         }
-    }
+    },
+    // components: {
+    //     MuiOutlinedInput: {
+    //         styleOverrides: {
+    //             root: {
+    //                 'border': (paletteType === 'light') ? '#000' : 'pink',
+    //                 borderRadius: '2px solid'
+    //             }
+    //         }
+    //     }
+    // }
 });
 
 export default theme;

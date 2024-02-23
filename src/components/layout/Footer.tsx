@@ -21,10 +21,7 @@ const links = [
 ];
 
 const Footer = () => {
-  const theme = useTheme();
-  const primaryColor = theme.palette.primary.main;
-  const primaryText = theme.palette.primary.contrastText;
-  const overline = theme.typography.overline;
+  const { palette, typography } = useTheme();
 
   const localTheme = {
     footer: {
@@ -49,16 +46,16 @@ const Footer = () => {
       padding: "0px 4px 10px 0px",
     },
     typo: {
-      fontSize: overline,
+      fontSize: typography.overline,
       textTransform: "capitalize",
-      color: primaryText,
+      color: palette.primary.contrastText,
     },
     iconsBox: {
       display: "flex",
       flexDirection: "row",
     },
     icon: {
-      color: primaryText, //black
+      color: palette.primary.contrastText, //black
       fontSize: '20px'
     },
   };
@@ -68,7 +65,7 @@ const Footer = () => {
       sx={{
         // position: "fixed",
         bottom: 0,
-        backgroundColor: primaryColor,
+        backgroundColor: palette.info.main,
         width: "100%",
         boxShadow: "4px 4px 4px 4px rgba(0,0,0,0.2)",
         marginTop: "24px",

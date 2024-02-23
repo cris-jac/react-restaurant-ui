@@ -7,6 +7,9 @@ import { useUpdateShoppingCartMutation } from "../../../api/shoppingCartApi";
 import { useNavigate } from "react-router-dom";
 import ApiResponseModel from "../../../interfaces/ApiResponseModel";
 import useStyledToast from "../../../helpers/useStyledToast";
+import UserModel from "../../../interfaces/UserModel";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../storage/redux/store";
 
 interface Props {
   item: MenuItemModel
@@ -32,7 +35,8 @@ const Details = ({ item }: Props) => {
   // Define Api mutation 
   const [updateShoppingCart] = useUpdateShoppingCartMutation();
   // Update user Id
-  const userId = "abd83cf0-2b6a-49a9-9965-568ec7d4cdf3";
+  // const userId = "abd83cf0-2b6a-49a9-9965-568ec7d4cdf3";
+  const userData: UserModel = useSelector((state: RootState) => state.userAuthStore);
 
   // Manage changes in quantity
   const handleQuantity = (counter: number) => {
@@ -47,7 +51,7 @@ const Details = ({ item }: Props) => {
   //
   const handleUpdateCart = async(menuItemId: number) => {
     // If user is not logged in
-    if (!userId) {
+    if (!userData.id) {
       navigate('/login');
       return;
     }
@@ -55,7 +59,7 @@ const Details = ({ item }: Props) => {
     const response: ApiResponseModel = await updateShoppingCart({
       menuItemId: menuItemId,
       updateQuantityBy: quantity,
-      userId: userId
+      userId: userData.id
     })
     // Check response
     if (response.data && response.data.isSuccess) {

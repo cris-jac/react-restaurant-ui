@@ -13,11 +13,14 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 // import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 // import image from "../../../../public/images/items/farhad-ibrahimzade-59lfMHMZugY-unsplash_1_11zon.jpg"
 // import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useUpdateShoppingCartMutation } from "../../../api/shoppingCartApi";
 import ApiResponseModel from "../../../interfaces/ApiResponseModel";
 // import toastNotify from "../../../helpers/useStyledToast";
 import useStyledToast from "../../../helpers/useStyledToast";
+import UserModel from "../../../interfaces/UserModel";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../storage/redux/store";
 // import { MenuItemModel } from "../../../interfaces";
 
 interface Props {
@@ -65,19 +68,27 @@ const MenuItemCard = ({ name, price, img, id }: Props) => {
     }
   };
 
-  // Toast
+  // Hooks
+  const navigate = useNavigate();
   const toastNotify = useStyledToast();
 
   // Manage Add to cart
   // Id hardcoded
-  const userId = "abd83cf0-2b6a-49a9-9965-568ec7d4cdf3";
+  // const userId = "abd83cf0-2b6a-49a9-9965-568ec7d4cdf3";
+  const userData: UserModel = useSelector((state: RootState) => state.userAuthStore);
   // Declare Api request
   const [updateShoppingCart] = useUpdateShoppingCartMutation();
   // 
   const handleAddToCart = async (menuItemId: number) => {
+    // If there's no userId
+    if (!userData.id) {
+      navigate('/login');
+      return;
+    }
+    // Api mutation
     const response: ApiResponseModel = await updateShoppingCart({
       menuItemId: menuItemId,
-      userId: userId,
+      userId: userData.id, //userId,
       updateQuantityBy: 1
     })
 
@@ -101,6 +112,7 @@ const MenuItemCard = ({ name, price, img, id }: Props) => {
           component="img"
           height="240"
           image={`http://localhost:5173/${img}`}
+          // image={`${import.meta.env.VITE_REACT_URL}/${img}`}
           alt={name}
           sx={localTheme.cardMedia}
         />
