@@ -12,8 +12,8 @@ const NavigationButton = ({ path, label, img }: Props) => {
 
     // Styling
     const { palette, typography, breakpoints } = useTheme();
-    const h5 = typography.h5;
-    const h3 = typography.h3;
+    const h6 = typography.h6;
+    const h4 = typography.h4;
     const textColor = palette.primary.contrastText;
     const isSmScreen = useMediaQuery(breakpoints.down("sm"));
     
@@ -29,7 +29,7 @@ const NavigationButton = ({ path, label, img }: Props) => {
             }
         },
         label: {
-            fontSize: isSmScreen ? h5 : h3,
+            fontSize: isSmScreen ? h6 : h4,
         }
     }
 

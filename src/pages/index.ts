@@ -7,6 +7,8 @@ import MenuItemDetails from "./MenuItemDetails";
 import NotFound from "./NotFound";
 import Register from "./Register";
 import ShoppingCart from "./ShoppingCart";
+import Checkout from "./Checkout";
+import Payment from "./Payment";
 
 export { 
     About,
@@ -17,5 +19,7 @@ export {
     MenuItemDetails,
     NotFound,
     Register,
-    ShoppingCart
+    ShoppingCart,
+    Checkout,
+    Payment
 }

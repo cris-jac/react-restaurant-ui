@@ -53,9 +53,6 @@ const Login = () => {
         id, fullName, email, role
       }))
 
-      // notification
-      toastNotify("Great! you are registered. Please log in");
-
       // redirect
       navigate("/");
 

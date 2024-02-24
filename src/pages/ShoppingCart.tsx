@@ -4,13 +4,23 @@ import { RootState } from "../storage/redux/store"
 import { ShoppingCartSummary, ShoppingCartTable } from "../components/pages/shoppingCart"
 import { CartItemModel } from "../interfaces"
 import { useEffect, useState } from "react"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
+import UserModel from "../interfaces/UserModel"
 
 const ShoppingCart = () => {
 
   // styling
   const { palette } = useTheme();
 
+
+  // hooks
+  const navigate = useNavigate();
+  
+  // 
+  const userData: UserModel = useSelector((state: RootState) => state.userAuthStore);
+  if (userData.id == "") {
+    navigate('/login');
+  }
 
   const [itemsInCart, setItemsInCart] = useState<CartItemModel[]>([])
   const { cartItems } = useSelector((state: RootState) => state.shoppingCartStore)
@@ -20,6 +30,12 @@ const ShoppingCart = () => {
       setItemsInCart(cartItems)
     }
   }, [cartItems])
+
+  // const handleCheckout = () => {
+  //   navigate("/checkout", { 
+
+  //    })
+  // }
 
   return (
     <Box maxWidth="lg" paddingX={4} marginY={4} sx={{ margin: 'auto' }}>
@@ -72,9 +88,11 @@ const ShoppingCart = () => {
             sx={{ 
               paddingBottom: 1,
              }}
-          >Summary</Typography>
+          >
+            Summary
+          </Typography>
           <ShoppingCartSummary items={itemsInCart}/>
-          <NavLink to="/checkout">
+          <Link to="/checkout">
             <Button 
             sx={{
               border: "2px solid",
@@ -92,7 +110,7 @@ const ShoppingCart = () => {
             >
               Se ve bien
             </Button>
-          </NavLink>
+          </Link>
         </Grid>
       </Grid>
     </Box>
