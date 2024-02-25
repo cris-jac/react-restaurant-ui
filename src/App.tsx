@@ -69,7 +69,7 @@ function App() {
   }, [userData, localStorage])    // Called with userData
   
   // Api Get shopping cart
-  const { data: cartData, isLoading: cartLoading } = useGetShoppingCartQuery(userData.id);
+  const { data: cartData, isLoading: cartLoading } = useGetShoppingCartQuery(userData?.id);
   // Store Set shopping cart
   useEffect(() => {
     // If there is userData

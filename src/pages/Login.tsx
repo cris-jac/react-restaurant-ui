@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useLoginUserMutation } from "../api/userAuthApi";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Box, Button, TextField, Typography, useMediaQuery, useTheme } from "@mui/material";
 import ApiResponseModel from "../interfaces/ApiResponseModel";
@@ -162,9 +162,9 @@ const Login = () => {
               color: palette.primary.contrastText
             }} 
             >No tenes cuenta? &nbsp;
-              <NavLink to={"/register"} style={{ textDecoration: "none" }}>
+              <Link to={"/register"} style={{ textDecoration: "none" }}>
                 Registrate
-              </NavLink>
+              </Link>
             </Typography>
           </Box>
         </form>
