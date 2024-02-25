@@ -9,6 +9,9 @@ import Register from "./Register";
 import ShoppingCart from "./ShoppingCart";
 import Checkout from "./Checkout";
 import Payment from "./Payment";
+import OrderConfirmed from "./orders/OrderConfirmed";
+import MyOrders from "./orders/MyOrders";
+// import AllOrders from "./orders/AllOrders";
 
 export { 
     About,
@@ -21,5 +24,8 @@ export {
     Register,
     ShoppingCart,
     Checkout,
-    Payment
+    Payment,
+    OrderConfirmed,
+    MyOrders,
+    // AllOrders
 }

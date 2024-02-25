@@ -15,9 +15,9 @@ import ApiResponseModel from "../../../interfaces/ApiResponseModel";
 const PaymentForm = ({ data, userInput }: OrderSummaryProps) => {
 
     // Check 1: data and userInput - not used yet
-    console.log("Check 1");
-    console.log(data);
-    console.log(userInput);
+    // console.log("Check 1");
+    // console.log(data);
+    // console.log(userInput);
 
   // styles
   const { palette } = useTheme();
@@ -36,7 +36,7 @@ const PaymentForm = ({ data, userInput }: OrderSummaryProps) => {
     e.preventDefault();
 
      // Check 2: data and userInput - not used yet
-     console.log("Check 2: Handle submit triggered");
+    //  console.log("Check 2: Handle submit triggered");
 
     if (!stripe || !elements) {
       return;
@@ -53,17 +53,17 @@ const PaymentForm = ({ data, userInput }: OrderSummaryProps) => {
     });
 
      // Check 3: result from using the stripe api request
-     console.log("Check 3:");
-     console.log(result);
+    //  console.log("Check 3:");
+    //  console.log(result);
 
     if (result.error) {
       // Show error to your customer (for example, payment details incomplete)
       toastNotify("An error occurred", "error");
 
       // Check 4: result error
-      console.log("Check 4:");
-      console.log(result.error);
-      console.log(result.error.message);
+      // console.log("Check 4:");
+      // console.log(result.error);
+      // console.log(result.error.message);
     } else {
       // set the order details for api order
       let totalAmout = 0;
@@ -82,8 +82,8 @@ const PaymentForm = ({ data, userInput }: OrderSummaryProps) => {
       });
 
       // check 5: order body set --- DONE
-      console.log("Check 5:");
-      console.log(orderDetailsDto);
+      // console.log("Check 5:");
+      // console.log(orderDetailsDto);
 
 
       // Api order create request
@@ -101,14 +101,14 @@ const PaymentForm = ({ data, userInput }: OrderSummaryProps) => {
       });
 
       // Check 6: response object
-      console.log("Check 6");
-      console.log(response);
+      // console.log("Check 6");
+      // console.log(response);
 
       //check if there is a response
       if (response) {
 
         // Check 7: response object
-        console.log("Check 7: There is response");
+        // console.log("Check 7: There is response");
 
         // check is status is confirmed
         if (response.data?.result.status === "Confirmed") {
@@ -117,19 +117,17 @@ const PaymentForm = ({ data, userInput }: OrderSummaryProps) => {
 
           // navigate to order created succesfullly screen
           toastNotify("Order confirmed");
-          navigate("/");
+          navigate(`/orders/orderConfirmed/${response.data.result.orderHeaderId}`);
         } else {
         // Check 8: response object
-        console.log("Check 8: The response status is confirmed");
-        console.log(response);
-        console.log(response.error);
+        // console.log("Check 8: The response status is confirmed");
+        // console.log(response);
+        // console.log(response.error);
 
           // navigate to failed
           toastNotify("An issue has occurred", "error");
         }
       }
-      //   console.log("Great success");
-      //   navigate("/");
     }
   };
 

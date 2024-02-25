@@ -4,6 +4,7 @@ import { useRegisterUserMutation } from "../api/userAuthApi";
 import ApiResponseModel from "../interfaces/ApiResponseModel";
 import { NavLink, useNavigate } from "react-router-dom";
 import useStyledToast from "../helpers/useStyledToast";
+import { SD_Roles } from "../utility/SD";
 
 const Register = () => {
     // style
@@ -40,7 +41,7 @@ const Register = () => {
         name: name,
         email: email,
         password: password,
-        role: isAdmin ? "admin" : "customer"
+        role: isAdmin ? SD_Roles.ADMIN : SD_Roles.CUSTOMER
       });
 
       if (response.data) {

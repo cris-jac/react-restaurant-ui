@@ -1,10 +1,13 @@
-import logo from "./../../assets/LastLogo1.png";
+import logo from "./../../assets/LastLogo2.png";
 import logoMini from "./../../assets/LastLogo3.png";
 import {
   AppBar,
   Badge,
   Box,
+  Button,
   Container,
+  Divider,
+  Drawer,
   IconButton,
   List,
   Toolbar,
@@ -28,7 +31,10 @@ import NoAccountsIcon from "@mui/icons-material/NoAccounts";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import MenuIcon from "@mui/icons-material/Menu";
 import { setShoppingCart } from "../../storage/redux/cartItemSlice";
+import { useState } from "react";
 
 const middleLinks = [
   { name: "Menu", route: "/menu" },
@@ -37,15 +43,14 @@ const middleLinks = [
 ];
 
 interface Props {
-    darkMode: boolean;
-    handleThemeChange: () => void;
+  darkMode: boolean;
+  handleThemeChange: () => void;
 }
-
 
 const Header = ({ handleThemeChange, darkMode }: Props) => {
   // Styling
-  const { palette, breakpoints } = useTheme();
-  const isSmScreen = useMediaQuery(breakpoints.down("sm"));
+  const { palette, breakpoints, typography } = useTheme();
+  const isMdScreen = useMediaQuery(breakpoints.down("md"));
 
   // Hooks
   const dispatch = useDispatch();
@@ -73,8 +78,16 @@ const Header = ({ handleThemeChange, darkMode }: Props) => {
     navigate("/");
   };
 
-    // Badge count
-    const itemCount = shoppingCart ? shoppingCart.reduce((sum: number, item: CartItemModel) => sum + item.quantity, 0) : 0;
+  // Badge count
+  const itemCount = shoppingCart
+    ? shoppingCart.reduce(
+        (sum: number, item: CartItemModel) => sum + item.quantity,
+        0
+      )
+    : 0;
+
+  // SideMenu
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <AppBar
@@ -90,62 +103,191 @@ const Header = ({ handleThemeChange, darkMode }: Props) => {
       <Container
       //  sx={{ background:"none" }}
       >
-        <Toolbar
-          sx={{
-            display: "flex",
-            alignItems: "space-center",
-            justifyContent: "space-between",
-            // background:"none"
-          }}
-        >
-          <NavigationButton path="/" img={isSmScreen ? logoMini : logo} />
+        {isMdScreen ? (
+          <Toolbar
+            sx={{
+              display: "flex",
+              alignItems: "space-center",
+              justifyContent: "space-between",
+            }}
+          >
+            <NavigationButton path="/" img={logoMini} />
 
-          <Box>
-            <List sx={{ alignItems: "center" }}>
-              {middleLinks.map((link) => (
-                <NavigationButton
-                  key={link.name}
-                  path={link.route}
-                  label={link.name}
-                />
-              ))}
-            </List>
-          </Box>
+            <Box>
+              <IconButton onClick={() => setIsOpen(!isOpen)}>
+                <MenuIcon />
+              </IconButton>
 
-          <Box>
-            <Tooltip title="Change mode">
-                <IconButton onClick={handleThemeChange}>
-                    { darkMode ? (
-                        <Brightness7Icon />
-                        ) : (
-                        <Brightness4Icon />
-                    )}
-                </IconButton>
-            </Tooltip>
-            <Tooltip title="See shopping cart">
-              <NavLink to={"/shoppingCart"}>
-                <IconButton>
-                <Badge color="secondary" badgeContent={itemCount}>
-                  <ShoppingCartIcon />
-                </Badge>
-                </IconButton>
-              </NavLink>
-            </Tooltip>
-            <Tooltip title={(userData.id!="") ? "Logout" : "Login"}>
-                {(userData.id!="") ? (
-              <IconButton onClick={handleLongout}>
-                <NoAccountsIcon />  
-              </IconButton> ):(
-                <NavLink to={"/login"}>
-                    <IconButton>
-                        <AccountCircleIcon />
+              <Drawer
+                open={isOpen}
+                onClose={() => setIsOpen(!isOpen)}
+                anchor="right"
+              >
+                <Box
+                  padding={4}
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    height: "100%",
+                  }}
+                >
+                  <Box
+                    marginY={2}
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <IconButton
+                      onClick={handleThemeChange}
+                      sx={{ margin: "auto" }}
+                    >
+                      {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
                     </IconButton>
-                </NavLink>
-              )}
-            </Tooltip>
-          </Box>
+                    {userData.id != "" && (
+                      <NavLink to={"/orders/myorders"}>
+                        <Button
+                          startIcon={<ReceiptLongIcon />}
+                          sx={{
+                            fontSize: typography.h4,
+                            textTransform: "none",
+                            fontWeight: 500,
+                          }}
+                        >
+                          Orders
+                        </Button>
+                      </NavLink>
+                    )}
 
-        </Toolbar>
+                    <NavLink to={"/orders/myorders"}>
+                      <Button
+                        startIcon={<ShoppingCartIcon />}
+                        sx={{
+                          fontSize: typography.h4,
+                          textTransform: "none",
+                          fontWeight: 500,
+                          marginBottom: 2,
+                        }}
+                      >
+                        Shopping Cart
+                      </Button>
+                    </NavLink>
+
+                    <Divider />
+
+                    <List
+                      sx={{
+                        alignItems: "left",
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
+                      {middleLinks.map((link) => (
+                        <NavigationButton
+                          key={link.name}
+                          path={link.route}
+                          label={link.name}
+                        />
+                      ))}
+                    </List>
+                  </Box>
+
+                  <Box>
+                    {userData.id != "" ? (
+                      <Button
+                        startIcon={<NoAccountsIcon />}
+                        onClick={handleLongout}
+                        sx={{
+                          fontSize: typography.h4,
+                          textTransform: "none",
+                          fontWeight: 500,
+                        }}
+                      >
+                        Log out
+                      </Button>
+                    ) : (
+                      <NavLink to={"/login"}>
+                        <Button
+                          startIcon={<AccountCircleIcon />}
+                          sx={{
+                            fontSize: typography.h4,
+                            textTransform: "none",
+                          }}
+                        >
+                          Log in
+                        </Button>
+                      </NavLink>
+                    )}
+                  </Box>
+                </Box>
+              </Drawer>
+            </Box>
+          </Toolbar>
+        ) : (
+          <Toolbar
+            sx={{
+              display: "flex",
+              alignItems: "space-center",
+              justifyContent: "space-between",
+            }}
+          >
+            <NavigationButton path="/" img={logo} />
+
+              <Box>
+                <List sx={{ alignItems: "center" }}>
+                  {middleLinks.map((link) => (
+                    <NavigationButton
+                      key={link.name}
+                      path={link.route}
+                      label={link.name}
+                    />
+                  ))}
+                </List>
+              </Box>
+
+              <Box>
+                <Tooltip title="Change mode">
+                  <IconButton onClick={handleThemeChange}>
+                    {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+                  </IconButton>
+                </Tooltip>
+                {userData.id != "" && (
+                  <Tooltip title="See my orders">
+                    <NavLink to={"/orders/myorders"}>
+                      <IconButton>
+                        <ReceiptLongIcon />
+                      </IconButton>
+                    </NavLink>
+                  </Tooltip>
+                )}
+                <Tooltip title="See shopping cart">
+                  <NavLink to={"/shoppingCart"}>
+                    <IconButton>
+                      <Badge color="secondary" badgeContent={itemCount}>
+                        <ShoppingCartIcon />
+                      </Badge>
+                    </IconButton>
+                  </NavLink>
+                </Tooltip>
+                <Tooltip title={userData.id != "" ? "Logout" : "Login"}>
+                  {userData.id != "" ? (
+                    <IconButton onClick={handleLongout}>
+                      <NoAccountsIcon />
+                    </IconButton>
+                  ) : (
+                    <NavLink to={"/login"}>
+                      <IconButton>
+                        <AccountCircleIcon />
+                      </IconButton>
+                    </NavLink>
+                  )}
+                </Tooltip>
+              </Box>
+          </Toolbar>
+        )}
       </Container>
     </AppBar>
   );

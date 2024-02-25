@@ -37,7 +37,7 @@ const NavigationButton = ({ path, label, img }: Props) => {
     <NavLink to={path}>
         <Button size="small" sx={localStyle.button}>
             {img ? 
-            <img src={img} height={60} /> : 
+            <img src={img} height={48} /> : 
             <Typography sx={localStyle.label}>{label}</Typography>}
         </Button>
     </NavLink>

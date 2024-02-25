@@ -104,26 +104,26 @@ const ShoppingCartTable = ({ items }: Props) => {
           <TableRow 
             sx={{ borderBottom: '1px solid', borderColor: palette.primary.contrastText }}
           >
-            <TableCell>
+            <TableCell  align="left">
               <Typography color={contrast}>Product</Typography>
             </TableCell>
-            <TableCell>
+            <TableCell  align="center">
               <Typography color={contrast}>Price</Typography>
             </TableCell>
-            <TableCell>
+            <TableCell  align="center">
               <Typography color={contrast}>Quantity</Typography>
             </TableCell>
-            <TableCell>
+            <TableCell  align="center">
               <Typography color={contrast}>Subtotal</Typography>
             </TableCell>
-            <TableCell></TableCell>
+            <TableCell  align="center"></TableCell>
           </TableRow>
         </TableHead>
 
         <TableBody>
           {items.map((item) => (
             <TableRow key={item.id}>
-              <TableCell>
+              <TableCell align="left">
                 <Box
                   sx={{
                     display: "flex",
@@ -145,13 +145,13 @@ const ShoppingCartTable = ({ items }: Props) => {
                 </Box>
               </TableCell>
 
-              <TableCell>
+              <TableCell align="center" width="15%">
                 <Typography color={contrast} variant="body2">
                   $ {item.menuItem.priceInUSD}
                 </Typography>
               </TableCell>
 
-              <TableCell>
+              <TableCell align="center">
                 <Box
                   sx={{
                     display: "flex",
@@ -185,13 +185,13 @@ const ShoppingCartTable = ({ items }: Props) => {
                 </Box>
               </TableCell>
 
-              <TableCell>
+              <TableCell align="center">
                 <Typography color={contrast} variant="body2">
                   $ {item.menuItem.priceInUSD * item.quantity}
                 </Typography>
               </TableCell>
 
-              <TableCell sx={
+              <TableCell align="center" sx={
                 { 
                     alignItems: 'center',
                     px: '1px'

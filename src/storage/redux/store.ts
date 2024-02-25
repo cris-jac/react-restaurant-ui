@@ -14,7 +14,7 @@ const store = configureStore({
         [shoppingCartApi.reducerPath]: shoppingCartApi.reducer,
         [userAuthApi.reducerPath]: userAuthApi.reducer,
         [paymentApi.reducerPath]: paymentApi.reducer,
-        [orderApi.reducerPath]: orderApi.reducer
+        [orderApi.reducerPath]: orderApi.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware()
         .concat(menuItemApi.middleware)

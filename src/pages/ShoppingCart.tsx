@@ -4,7 +4,7 @@ import { RootState } from "../storage/redux/store"
 import { ShoppingCartSummary, ShoppingCartTable } from "../components/pages/shoppingCart"
 import { CartItemModel } from "../interfaces"
 import { useEffect, useState } from "react"
-import { Link, NavLink, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import UserModel from "../interfaces/UserModel"
 
 const ShoppingCart = () => {
@@ -30,12 +30,6 @@ const ShoppingCart = () => {
       setItemsInCart(cartItems)
     }
   }, [cartItems])
-
-  // const handleCheckout = () => {
-  //   navigate("/checkout", { 
-
-  //    })
-  // }
 
   return (
     <Box maxWidth="lg" paddingX={4} marginY={4} sx={{ margin: 'auto' }}>

@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material"
+import { Box, Table, TableBody, TableCell, TableRow, Typography } from "@mui/material"
 import OrderSummaryProps from "./OrderSummaryProps"
 
 const OrderSummary = ({ data, userInput }: OrderSummaryProps) => {
@@ -35,7 +35,10 @@ const OrderSummary = ({ data, userInput }: OrderSummaryProps) => {
         </Box>
         
         <Typography marginY={1} variant="subtitle1">Order</Typography>
-        <Box>
+
+
+
+        {/* <Box>
             {data.cartItems.map((item) => (
                 <Box sx={{
                     display: 'flex',
@@ -53,6 +56,20 @@ const OrderSummary = ({ data, userInput }: OrderSummaryProps) => {
                     <Typography variant="body2">$ {item.menuItem.priceInUSD * item.quantity}</Typography>
                 </Box>
             ))}
+        </Box> */}
+
+        <Box>
+            <Table>
+                <TableBody>
+                {data.cartItems.map((item) => (
+                    <TableRow>
+                        <TableCell >{item.menuItem.name}</TableCell>
+                        <TableCell colSpan={1}>$ {item.menuItem.priceInUSD} x {item.quantity} =</TableCell>
+                        <TableCell colSpan={1}>$ {item.menuItem.priceInUSD * item.quantity}</TableCell>
+                    </TableRow>
+                ))}
+                </TableBody>
+            </Table>
         </Box>
 
         <Box marginY={2} sx={{
@@ -63,6 +80,9 @@ const OrderSummary = ({ data, userInput }: OrderSummaryProps) => {
                 <Typography variant="subtitle1">Total:</Typography>
                 <Typography variant="subtitle1">$ {data.cartTotal}</Typography>
             </Box>
+
+
+           
     </Box>
   )
 }

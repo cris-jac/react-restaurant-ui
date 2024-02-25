@@ -1,8 +1,8 @@
 // import './App.css'
 import { Route, Routes } from "react-router-dom";
-import { About, Checkout, Contact, Home, Login, Menu, MenuItemDetails, NotFound, Payment, Register, ShoppingCart } from "./pages";
+import { About, Checkout, Contact, Home, Login, Menu, MenuItemDetails, MyOrders, NotFound, OrderConfirmed, Payment, Register, ShoppingCart } from "./pages";
 import { Footer, Header } from "./components/layout";
-import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import { useGetShoppingCartQuery } from "./api/shoppingCartApi";
 import { useEffect, useState } from "react";
@@ -14,7 +14,6 @@ import { jwtDecode } from "jwt-decode";
 import { setLoggedInUser } from "./storage/redux/userAuthSlice";
 import { useGetMenuItemsQuery } from "./api/menuItemApi";
 import { setMenuItems } from "./storage/redux/menuItemSlice";
-import { CartItemModel } from "./interfaces";
 
 function App() {
   
@@ -109,6 +108,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
+          <Route path="/menuItemDetails/:menuItemId" element={<MenuItemDetails />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
@@ -116,10 +116,9 @@ function App() {
           <Route path="/shoppingCart" element={<ShoppingCart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/payment" element={<Payment />} />
-          <Route
-            path="/menuItemDetails/:menuItemId"
-            element={<MenuItemDetails />}
-          />
+          <Route path="/orders/myOrders" element={<MyOrders />} />
+          {/* <Route path="/orders/allOrders" element={<AllOrders/>} /> */}
+          <Route path="/orders/orderConfirmed/:id" element={<OrderConfirmed/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
