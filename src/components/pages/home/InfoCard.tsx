@@ -1,5 +1,5 @@
 import { useMediaQuery, Container, Card, CardMedia, Box, CardContent, Typography, useTheme } from '@mui/material';
-import image from "./../../../assets/ibrahim-boran-R8fLxanhOQY-unsplash_5_11zon.jpg"
+import image from "./../../../assets/elias-morr-lUQf5XDaVy0-unsplash.jpg";
 
 const InfoCard = () => {
     const theme = useTheme();

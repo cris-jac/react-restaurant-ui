@@ -18,7 +18,7 @@ const theme = (paletteType: any) => createTheme({
         },
         info: {
             light: (paletteType === 'light') ? '#FFFFFF' : '#303634',
-            main: (paletteType === 'light') ? 'rgba(0,0,0,0.4)' : 'rgba(0, 0, 0, 0.2)',
+            main: (paletteType === 'light') ? 'rgba(0,0,0,0.2)' : 'rgba(0, 0, 0, 0.2)',
             dark: (paletteType === 'light') ? 'rgba(0,0,0,0.2)' : 'rgba(255, 255, 255, 0.5)',
             contrastText: (paletteType === 'light') ? '#FFF' : '#C2D6D0',
         },

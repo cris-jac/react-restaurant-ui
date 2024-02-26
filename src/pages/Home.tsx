@@ -56,9 +56,9 @@ const Home = () => {
 
   return (
     <>
-      <ImageBanner items={categoryItems.slice(0,3)}/>
-      <InfoCard />
       <IconBanner />
+      <InfoCard />
+      <ImageBanner items={categoryItems.slice(0,3)}/>
     </>
   )
 };

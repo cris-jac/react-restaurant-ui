@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material"
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { useParams } from "react-router-dom";
-import image from "../../assets/hannah-busing-0BhSKStVtdM-unsplash_3_11zon.jpg";
+import image from "../../assets/hannah-busing-0BhSKStVtdM-unsplash.jpg";
 
 const OrderConfirmed = () => {
     const { id } = useParams();

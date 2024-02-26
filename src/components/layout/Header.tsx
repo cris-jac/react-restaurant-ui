@@ -1,5 +1,5 @@
-import logo from "./../../assets/LastLogo2.png";
-import logoMini from "./../../assets/LastLogo3.png";
+import logo from "../../assets/Logo_2.png";
+import logoMini from "../../assets/Logo_3.png";
 import {
   AppBar,
   Badge,
