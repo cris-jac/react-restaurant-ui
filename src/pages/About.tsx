@@ -1,163 +1,62 @@
-import { Box, Card, CardContent, CardMedia, Container, Typography, useMediaQuery, useTheme } from "@mui/material";
-import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Container,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { AboutStory, AboutText } from "../components/pages/about";
 
 const About = () => {
-
-  const theme = useTheme();
-    const isSmScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  
-    const localTheme = {
-      // container: {
-      //   bgcolor: "none"
-      // },
-      card: {
-        display: "flex",
-        borderRadius: "0px",
-        position: "relative",
-        bgcolor: "rgba(0,0,0,0)",
-        border: "none",
-        backgroundImage: "none",
-        boxShadow: "none",
-        maxWidth: "100%",
-        padding: "20px",
-        gap: "20px",
-        flexDirection: isSmScreen ? 'column' : 'row',
-        justifyItems: 'center',
-        alignItems: isSmScreen ? 'center' : 'flex-start',
-      },
-      // cardMedia: {
-      //   borderRadius: "2px",
-      //   width: "300px",
-      //   filter: "saturate(80%)",
-      // },
-      box: {
-        display: "flex",
-        flexDirection: "column",
-        position: "relative",
-      },
-      cardContent: {
-        position: "relative",
-        padding: "0px"
-      },
-      title: {
-        position: "relative",
-        // paddingTop: "10px",
-        paddingBottom: "20px",
-        color: theme.palette.primary.contrastText,
-        zIndex: "0",
-        ":after": {
-          content: '""',
-          position: "absolute",
-          width: "120px",
-          height: "20px",
-          bgcolor: theme.palette.secondary.main,  //"#C2D6D0",
-          top: "15px",
-          left: "15px",
-          zIndex: "-1",
-        },
-      },
-      paragraph: {
-        bgcolor: theme.palette.secondary.dark,
-        padding: "4px 20px 4px 20px",
-        color: theme.palette.secondary.contrastText
-      }
-    };
+  const { palette, breakpoints } = useTheme();
+  const isSmScreen = useMediaQuery(breakpoints.down("md"));
+  const localTheme = {
+    bannerBox: {
+      bgcolor: palette.primary.light,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      position: "relative",
+    },
+  };
 
   return (
     <Box>
-      <Container
-        maxWidth="md"
-        sx={
-          localTheme.card
-        }
-      >
+      <Typography maxWidth="lg" padding={2} variant="h1">
+        Our story
+      </Typography>
 
+      <AboutStory />
 
-        <Box>
-
-          <Box>
-            <Typography
-                variant="h6"
-                gutterBottom
-                sx={
-                  localTheme.title
-                }
-              >
-                This product
-              </Typography>
-  
-              <Typography
-                variant="body2"
-                sx={localTheme.paragraph}
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-                itaque asperiores officia? Ad sunt possimus quam dignissimos
-                adipisci odio neque repellendus! Eum officia laudantium assumenda
-                recusandae illo ab, vero facilis.
-              </Typography>
-          </Box>
-
-          <Box
-          sx={
-            {
-              height: "300px",
-              width: "300px",
-              borderRadius: "2px"
-            }
-          }
-          >
-            <HistoryEduIcon/>
-          </Box>
-
-        </Box>
-
-    {/* <Card
-          sx={
-            localTheme.card
-          }
+      <Box sx={localTheme.bannerBox} marginY={2} paddingY={2}>
+        <Typography
+          variant="h1"
+          marginY={2}
+          maxWidth="md"
+          paddingX={2}
+          color={palette.primary.contrastText}
         >
-          <CardMedia
-            component="img"
-            // image={image}
-            height="300"
-            sx={localTheme.cardMedia}
-          />
-          <Box
-            sx={localTheme.box}
-          >
-            <CardContent
-              sx={
-                localTheme.cardContent
-              }
-            >
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={
-                  localTheme.title
-                }
-              >
-                This product
-              </Typography>
-  
-              <Typography
-                variant="body2"
-                sx={localTheme.paragraph}
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-                itaque asperiores officia? Ad sunt possimus quam dignissimos
-                adipisci odio neque repellendus! Eum officia laudantium assumenda
-                recusandae illo ab, vero facilis.
-              </Typography>
-            </CardContent>
-          </Box>
-        </Card> */}
-        </Container>
+          Lorem ipsum dolor sit amet consectetur.
+        </Typography>
 
+        <Typography
+          variant="body2"
+          marginY={2}
+          maxWidth="md"
+          paddingX={2}
+          color={palette.info.contrastText}
+        >
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat fuga
+          sequi odio quasi, quo dolor.
+        </Typography>
+      </Box>
 
-
+      <AboutText />
     </Box>
-  )
-}
+  );
+};
 
-export default About
+export default About;

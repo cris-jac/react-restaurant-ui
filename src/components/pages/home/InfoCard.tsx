@@ -1,5 +1,5 @@
 import { useMediaQuery, Container, Card, CardMedia, Box, CardContent, Typography, useTheme } from '@mui/material';
-import image from "./../../../assets/elias-morr-lUQf5XDaVy0-unsplash.jpg";
+import image from "../../../assets/micheile-henderson-doeWwiscUPI-unsplash.jpg";
 
 const InfoCard = () => {
     const theme = useTheme();
@@ -27,7 +27,10 @@ const InfoCard = () => {
       },
       cardMedia: {
         borderRadius: "0px",
-        width: "300px",
+        // width: "300px",
+        // height:"300px",
+        // width:"300px",
+        // objectFit: "cover",
         filter: "saturate(80%)",
       },
       box: {
@@ -78,8 +81,9 @@ const InfoCard = () => {
           <CardMedia
             component="img"
             image={image}
-            height="300"
-            sx={localTheme.cardMedia}
+            // height="300px"
+            width="300"
+            sx={{...localTheme.cardMedia, maxHeight: "300px", width: "100%", objectFit: "cover"}}
           />
           <Box
             sx={localTheme.box}
