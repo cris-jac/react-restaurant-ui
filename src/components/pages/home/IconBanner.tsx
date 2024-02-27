@@ -29,8 +29,9 @@ const IconBanner = () => {
         maxWidth="sm"
         marginY={2}
         color={palette.primary.contrastText}
+        align="center"
       >
-        Lorem ipsum dolor sit.
+        Your satisfaction
       </Typography>
       <Typography
         variant="body1"
@@ -38,11 +39,9 @@ const IconBanner = () => {
         marginY={2}
         paddingX={2}
         color={palette.secondary.contrastText}
+        align="center"
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nihil
-        voluptas consectetur quos ipsum minima aliquid nobis est nostrum
-        corrupti dolore dolorem, sunt deserunt saepe reprehenderit ex, maiores
-        aspernatur voluptate?
+        At our restaurant, savoring your favorite vegetables is not just an option but a promise. Whether you dine with us or opt for takeout, your satisfaction is our priority, ensuring each dish meets your expectations and delights your taste buds with the freshest and most flavorful ingredients.
       </Typography>
       <Box maxWidth="sm" marginY={2}>
         <SpaIcon sx={localTheme.icon} />

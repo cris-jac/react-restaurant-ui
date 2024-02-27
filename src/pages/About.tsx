@@ -34,7 +34,7 @@ const About = () => {
           align="center"
           color={palette.primary.contrastText}
         >
-          Lorem ipsum dolor sit amet consectetur.
+          "every diner can find a dish that aligns with their dietary needs and preferences"
         </Typography>
 
         <Typography
@@ -45,8 +45,7 @@ const About = () => {
           align="center"
           color={palette.info.contrastText}
         >
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat fuga
-          sequi odio quasi, quo dolor.
+          Our commitment to vegetarianism and sustainability extends beyond our menu, reflecting our dedication to fostering a sense of harmony and inclusivity within our community. 
         </Typography>
       </Box>
 

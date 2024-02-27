@@ -66,7 +66,7 @@ const ImageBanner = ({ items }: Props) => {
         align="center"
         color={theme.palette.primary.contrastText}
       >
-        Lorem ipsum dolor sit amet consectetur.
+        Our dishes
       </Typography>
 
       <Typography
@@ -77,8 +77,7 @@ const ImageBanner = ({ items }: Props) => {
         align="center"
         color={theme.palette.info.contrastText}
       >
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat fuga
-        sequi odio quasi, quo dolor.
+        Indulge in a diverse array of vegetarian dishes meticulously crafted to tantalize your taste buds. Whether you crave bold flavors or crave diverse textures, our menu offers a variety of options to suit every palate, ensuring a delightful dining experience for all discerning vegetarians.
       </Typography>
 
       <Box marginY={2} sx={localTheme.imagesContainer}>

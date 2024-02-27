@@ -1,6 +1,6 @@
 // import './App.css'
 import { Route, Routes } from "react-router-dom";
-import { About, Checkout, Contact, Home, Login, Menu, MenuItemDetails, MyOrders, NotFound, OrderConfirmed, Payment, Register, ShoppingCart } from "./pages";
+import { About, AllOrders, Checkout, Contact, Home, Login, Menu, MenuItemDetails, MyOrders, NotFound, OrderConfirmed, Payment, Register, ShoppingCart } from "./pages";
 import { Footer, Header } from "./components/layout";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "./theme";
@@ -117,7 +117,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/orders/myOrders" element={<MyOrders />} />
-          {/* <Route path="/orders/allOrders" element={<AllOrders/>} /> */}
+          <Route path="/orders/allOrders" element={<AllOrders/>} />
           <Route path="/orders/orderConfirmed/:id" element={<OrderConfirmed/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>

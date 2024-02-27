@@ -7,13 +7,13 @@ const OrderConfirmed = () => {
     const { id } = useParams();
 
   return (
-    <Box sx={{ margin: "auto", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+    <Box sx={{ margin: "auto", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
         <CheckCircleOutlineIcon sx={{ fontSize: "48px" }} />
-        <Box>
-            <Typography>Your order has been confirmed!</Typography>
-            <Typography>Your order ID: {id}</Typography>
-            <Typography>The chef has heard your order, in the meantime make yourself comfortable</Typography>
-            <img src={image} style={{ width: "400px" }} />
+        <Typography marginY={2}>Your order has been confirmed!</Typography>
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <Typography marginY={2} variant="subtitle1">Your order ID: {id}</Typography>
+            <Typography marginY={2} variant="body2">The chef has heard your order, in the meantime make yourself comfortable</Typography>
+            <img src={image} style={{ width: "400px", borderTop: "2px solid", borderBottom: "2px solid", borderColor: "#85ada4", borderRadius: "2px" }} />
         </Box>
     </Box>
   )

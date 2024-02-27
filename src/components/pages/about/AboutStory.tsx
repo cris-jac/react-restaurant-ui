@@ -73,7 +73,7 @@ const AboutStory = () => {
                   localTheme.title
                 }
               >
-                This product
+                From the origins...
               </Typography>
   
                 <Box sx={localTheme.paragraphBox} paddingX={4} paddingY={2}>
@@ -83,10 +83,7 @@ const AboutStory = () => {
                             variant="body2"
                             sx={localTheme.paragraph}
                         >
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-                            itaque asperiores officia? Ad sunt possimus quam dignissimos
-                            adipisci odio neque repellendus! Eum officia laudantium assumenda
-                            recusandae illo ab, vero facilis.
+                            In the beginning, our journey sprouted from humble origins, the vegetables harvested from our very own organic urban garden. What started as a small endeavor soon blossomed into something greater when we decided to share our passion for fresh, sustainable ingredients with the community by opening a restaurant. As demand grew and our vision expanded, we recognized the importance of collaboration and sustainability in our culinary pursuits.
                         </Typography>
                     </Box>
                 </Box>

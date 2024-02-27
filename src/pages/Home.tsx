@@ -1,8 +1,8 @@
 import { HeroSection, IconBanner, ImageBanner, InfoCard } from "../components/pages/home";
-import { useGetMenuItemsQuery } from "../api/menuItemApi";
+// import { useGetMenuItemsQuery } from "../api/menuItemApi";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setMenuItems } from "../storage/redux/menuItemSlice";
+import { useSelector } from "react-redux";
+// import { setMenuItems } from "../storage/redux/menuItemSlice";
 import { BannerItemModel, MenuItemModel } from "../interfaces";
 import { RootState } from "../storage/redux/store";
 
@@ -12,15 +12,15 @@ import image3 from "../assets/victoria-shes-Qa29U4Crvn4-unsplash.jpg";
 
 const Home = () => {
 
-  // Artificial Data
+  // Text data
   const infoCardData = [
-    { title: "Lorem ipsum dolor sit amet.", paragraph: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas minima consectetur iste asperiores vel ducimus fugit hic quisquam eaque sunt."},
-    { title: "Lorem ipsum dolor sit amet.", paragraph: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quas incidunt, debitis minus enim aspernatur inventore esse hic explicabo?" },
+    { title: "Wholesome... like you", paragraph: "With a commitment to quality and sustainability, we take pride in sourcing ingredients directly from our organic gardens. Every bite is infused with the vibrant colors, rich flavors, and juicy textures of freshly harvested produce, guaranteeing a culinary experience that is both wholesome and delicious."},
+    { title: "Eco-friendly", paragraph: "In partnership with our organic garden collaborators and a dedication to a plant-based menu, we are committed to promoting sustainability in every aspect of our restaurant. From farm to table, we prioritize eco-friendly practices, minimizing our environmental footprint while delivering fresh, nutritious, and ethically sourced meals to our patrons." },
   ];
 
 
   // dispatch
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // // Api Get Items
   // const { data } = useGetMenuItemsQuery(null);
@@ -52,9 +52,6 @@ const Home = () => {
     }
     setCategoryItems(FilteredArray);
   }, [menuItems])       // data
-
-
-
 
 
   return (

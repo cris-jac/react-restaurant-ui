@@ -50,14 +50,11 @@ const AboutText = () => {
     <Container maxWidth="md" sx={localTheme.card}>
       <Box sx={localTheme.textBox}>
         <Typography paddingX={4} variant="h6" gutterBottom sx={localTheme.title}>
-          This product
+          ...Until Now
         </Typography>
 
         <Typography variant="body2" paddingX={4} paddingY={2} sx={localTheme.paragraph}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-          itaque asperiores officia? Ad sunt possimus quam dignissimos adipisci
-          odio neque repellendus! Eum officia laudantium assumenda recusandae
-          illo ab, vero facilis.
+        As our restaurant flourished, we embraced the ethos of community and sustainability by forging partnerships with local producers. By sourcing our ingredients from nearby farms and artisans, we not only ensured the freshest flavors for our dishes but also supported the local economy and promoted environmental stewardship. Our commitment to quality and authenticity extends beyond our kitchen doors, reflecting our belief in the interconnectedness of food, community, and the environment.
         </Typography>
       </Box>
 

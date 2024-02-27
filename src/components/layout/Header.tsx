@@ -148,7 +148,7 @@ const Header = ({ handleThemeChange, darkMode }: Props) => {
                       {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
                     </IconButton>
                     {userData.id != "" && (
-                      <NavLink to={"/orders/myorders"}>
+                      <NavLink to={userData.role == "admin" ? "/orders/allOrders" :"/orders/myorders"}>
                         <Button
                           startIcon={<ReceiptLongIcon />}
                           sx={{
@@ -162,7 +162,7 @@ const Header = ({ handleThemeChange, darkMode }: Props) => {
                       </NavLink>
                     )}
 
-                    <NavLink to={"/orders/myorders"}>
+                    <NavLink to={"/shoppingCart"}>
                       <Button
                         startIcon={<ShoppingCartIcon />}
                         sx={{
@@ -256,7 +256,7 @@ const Header = ({ handleThemeChange, darkMode }: Props) => {
                 </Tooltip>
                 {userData.id != "" && (
                   <Tooltip title="See my orders">
-                    <NavLink to={"/orders/myorders"}>
+                    <NavLink to={userData.role == "admin" ? "/orders/allOrders" :"/orders/myorders"}>
                       <IconButton>
                         <ReceiptLongIcon />
                       </IconButton>

@@ -1,4 +1,4 @@
-import { Box, Button, Container, Typography, useTheme } from "@mui/material"
+import { Box, Button, Typography, useTheme } from "@mui/material"
 import image from "../../../assets/evelyn-semenyuk-djVKFrCCTkI-unsplash.jpg";
 import { Link } from "react-router-dom";
 
@@ -30,8 +30,12 @@ const HeroSection = () => {
             }
         }}
     >
-        <Typography variant="h1" paddingX={2} marginBottom={18} align="center" color="white">Lorem ipsum dolor sit amet, consectetur adipisicing.</Typography>
-        <Typography variant="subtitle2" paddingX={2} marginY={2} align="center" color="white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur cupiditate quo delectus iure reiciendis minus voluptas accusantium asperiores magnam optio!</Typography>
+        <Typography variant="h1" paddingX={2} marginBottom={18} align="center" color="white">
+            Welcome to Hojas Verdes
+            </Typography>
+        <Typography variant="subtitle2" paddingX={2} marginY={2} align="center" color="white">
+            A vegetarian restaurant with diverse plant-based dishes
+        </Typography>
         <Link to="/menu">
             <Button 
                 sx={{

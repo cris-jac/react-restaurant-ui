@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material"
+import { Box, CircularProgress, Typography } from "@mui/material"
 // import { OrderList } from "../../components/pages/order"
 import { useSelector } from "react-redux"
 import { RootState } from "../../storage/redux/store";
@@ -15,13 +15,13 @@ const MyOrders = () => {
     // Api orders query
     const { data: ordersData, isLoading } = useGetOrdersQuery(id); 
 
-    if (isLoading) return (<Typography>Loading...</Typography>)
+    if (isLoading) return (<CircularProgress />)
 
     // console.log(ordersData);
 
   return (
     <Box maxWidth="lg" paddingX={4} sx={{ margin: "auto" }}>
-        <Typography variant="h5">All Orders</Typography>
+        <Typography variant="h1" align="center">All Orders</Typography>
         <CollapsibleTable orderHeaders={ordersData.result} />
     </Box>
   )
