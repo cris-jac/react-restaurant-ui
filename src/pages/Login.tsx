@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useLoginUserMutation } from "../api/userAuthApi";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Box, Button, TextField, Typography, useMediaQuery, useTheme } from "@mui/material";
 import ApiResponseModel from "../interfaces/ApiResponseModel";

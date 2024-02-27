@@ -63,6 +63,7 @@ const ImageBanner = ({ items }: Props) => {
         marginY={2}
         maxWidth="md"
         paddingX={2}
+        align="center"
         color={theme.palette.primary.contrastText}
       >
         Lorem ipsum dolor sit amet consectetur.
@@ -73,6 +74,7 @@ const ImageBanner = ({ items }: Props) => {
         marginY={2}
         maxWidth="md"
         paddingX={2}
+        align="center"
         color={theme.palette.info.contrastText}
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat fuga

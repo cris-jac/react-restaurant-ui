@@ -1,18 +1,12 @@
 import {
   Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Container,
   Typography,
-  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import { AboutStory, AboutText } from "../components/pages/about";
 
 const About = () => {
-  const { palette, breakpoints } = useTheme();
-  const isSmScreen = useMediaQuery(breakpoints.down("md"));
+  const { palette } = useTheme();
   const localTheme = {
     bannerBox: {
       bgcolor: palette.primary.light,
@@ -25,7 +19,7 @@ const About = () => {
 
   return (
     <Box>
-      <Typography maxWidth="lg" padding={2} variant="h1">
+      <Typography align="center" padding={2} variant="h1">
         Our story
       </Typography>
 
@@ -37,6 +31,7 @@ const About = () => {
           marginY={2}
           maxWidth="md"
           paddingX={2}
+          align="center"
           color={palette.primary.contrastText}
         >
           Lorem ipsum dolor sit amet consectetur.
@@ -47,6 +42,7 @@ const About = () => {
           marginY={2}
           maxWidth="md"
           paddingX={2}
+          align="center"
           color={palette.info.contrastText}
         >
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat fuga

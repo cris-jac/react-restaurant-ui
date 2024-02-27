@@ -20,7 +20,7 @@ const Menu = () => {
 
   return (
     <Box maxWidth="lg" paddingX={2} sx={{ margin: 'auto' }}>
-      <Typography variant="h1" marginBottom={2} >Our menu</Typography>
+      <Typography variant="h1" marginBottom={2} align="center" >Our menu</Typography>
       <Grid container spacing={2}>
         {menuItems.map((item: MenuItemModel, index) => (
           <Grid item xs={6} sm={4} md={3} key={index}>

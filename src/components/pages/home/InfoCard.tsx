@@ -1,7 +1,14 @@
 import { useMediaQuery, Container, Card, CardMedia, Box, CardContent, Typography, useTheme } from '@mui/material';
-import image from "../../../assets/micheile-henderson-doeWwiscUPI-unsplash.jpg";
+// import image from "../../../assets/micheile-henderson-doeWwiscUPI-unsplash.jpg";
 
-const InfoCard = () => {
+interface Props {
+  image: string;
+  title: string;
+  paragraph: string;
+  orientation?: 'left' | 'right';
+}
+
+const InfoCard = ({ image, title, paragraph, orientation = 'left' }: Props) => {
     const theme = useTheme();
     const isSmScreen = useMediaQuery(theme.breakpoints.down('sm'));
   
@@ -21,7 +28,7 @@ const InfoCard = () => {
         maxWidth: "100%",
         padding: "20px",
         gap: "20px",
-        flexDirection: isSmScreen ? 'column' : 'row',
+        flexDirection: isSmScreen ? 'column' : orientation === "left" ? "row" : "row-reverse", 
         justifyItems: 'center',
         alignItems: isSmScreen ? 'center' : 'flex-start',
       },
@@ -44,7 +51,6 @@ const InfoCard = () => {
       },
       title: {
         position: "relative",
-        // paddingTop: "10px",
         paddingBottom: "20px",
         color: theme.palette.primary.contrastText,
         zIndex: "0",
@@ -53,7 +59,7 @@ const InfoCard = () => {
           position: "absolute",
           width: "120px",
           height: "20px",
-          bgcolor: theme.palette.secondary.main,  //"#C2D6D0",
+          bgcolor: theme.palette.secondary.main,
           top: "15px",
           left: "15px",
           zIndex: "-1",
@@ -100,17 +106,14 @@ const InfoCard = () => {
                   localTheme.title
                 }
               >
-                This product
+                {title}
               </Typography>
   
               <Typography
                 variant="body2"
                 sx={localTheme.paragraph}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-                itaque asperiores officia? Ad sunt possimus quam dignissimos
-                adipisci odio neque repellendus! Eum officia laudantium assumenda
-                recusandae illo ab, vero facilis.
+                {paragraph}
               </Typography>
             </CardContent>
           </Box>

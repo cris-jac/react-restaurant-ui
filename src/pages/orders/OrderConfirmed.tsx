@@ -12,7 +12,7 @@ const OrderConfirmed = () => {
         <Box>
             <Typography>Your order has been confirmed!</Typography>
             <Typography>Your order ID: {id}</Typography>
-            <Typography>The chef has listened to your order, in the meanwhile get comfortable</Typography>
+            <Typography>The chef has heard your order, in the meantime make yourself comfortable</Typography>
             <img src={image} style={{ width: "400px" }} />
         </Box>
     </Box>
