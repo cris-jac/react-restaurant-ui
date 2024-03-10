@@ -6,17 +6,17 @@
 * Restaurant API (https://github.com/cris-jac/restaurantApi-NetSql.git)
 
 ## Installation
-1. Clone from github, using this command:
+1. Clone from github, using this command:\
 ```git clone https://github.com/cris-jac/restaurantApi-NetSql.git```
 
-2. Navigate to the repository folder:
+2. Navigate to the repository folder:\
 ```cd restaurantUi-React```
 
-3. Install dependencies:
+3. Install dependencies:\
 ```npm install```
 
 * If required, modify API URL (.env):\
-VITE_API_URL="```Your API url```"
+VITE_API_URL="```Your_API_url```"
 
-4. Run application
+4. Run application:\
 ```npm run dev```
