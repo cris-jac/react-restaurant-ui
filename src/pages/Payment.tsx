@@ -15,7 +15,8 @@ const Payment = () => {
 
   // stripe config
   const stripePromise = loadStripe(
-    "pk_test_51OTvKLJLFObLsyqNTKl3vrJVSXCi6dwpri7FyJ5pbJdAjD16yZK8kH5ehK6t1kn34O125TA024JugD1vDQ8OpFqZ00Erh0BvOa"
+    // "pk_test_51OTvKLJLFObLsyqNTKl3vrJVSXCi6dwpri7FyJ5pbJdAjD16yZK8kH5ehK6t1kn34O125TA024JugD1vDQ8OpFqZ00Erh0BvOa"
+    import.meta.env.STRIPE_PUBLIC_KEY
   );
   const options = {
     // passing the client secret obtained from the server

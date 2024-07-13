@@ -65,7 +65,7 @@ const MenuItemCard = ({ name, price, img, id }: Props) => {
       borderRadius: "0px",
       border: "1px solid",
       borderColor: palette.divider,
-    }
+    },
   };
 
   // Hooks
@@ -75,32 +75,33 @@ const MenuItemCard = ({ name, price, img, id }: Props) => {
   // Manage Add to cart
   // Id hardcoded
   // const userId = "abd83cf0-2b6a-49a9-9965-568ec7d4cdf3";
-  const userData: UserModel = useSelector((state: RootState) => state.userAuthStore);
+  const userData: UserModel = useSelector(
+    (state: RootState) => state.userAuthStore
+  );
   // Declare Api request
   const [updateShoppingCart] = useUpdateShoppingCartMutation();
-  // 
+  //
   const handleAddToCart = async (menuItemId: number) => {
     // If there's no userId
     if (!userData.id) {
-      navigate('/login');
+      navigate("/login");
       return;
     }
     // Api mutation
     const response: ApiResponseModel = await updateShoppingCart({
       menuItemId: menuItemId,
       userId: userData.id, //userId,
-      updateQuantityBy: 1
-    })
+      updateQuantityBy: 1,
+    });
 
     if (response.data && response.data.isSuccess) {
       // console.log("Great success")
       toastNotify("Item added to cart successfully!");
       // setIsOnCart(true);
     } else {
-      console.log(JSON.stringify(response.data?.errorMessages))
+      console.log(JSON.stringify(response.data?.errorMessages));
     }
-  }
-
+  };
 
   // const [IsOnCart, setIsOnCart] = useState<boolean>(false);
 
@@ -108,23 +109,23 @@ const MenuItemCard = ({ name, price, img, id }: Props) => {
     <Card sx={localTheme.card}>
       <CardActionArea>
         <Link to={`/menuItemDetails/${id}`}>
-        <CardMedia
-          component="img"
-          height="240"
-          image={`http://localhost:5173/${img}`}
-          // image={`${import.meta.env.VITE_REACT_URL}/${img}`}
-          alt={name}
-          sx={localTheme.cardMedia}
-        />
+          <CardMedia
+            component="img"
+            height="240"
+            // image={`http://localhost:5173/${img}`}
+            image={`${import.meta.env.VITE_REACT_URL}/${img}`}
+            alt={name}
+            sx={localTheme.cardMedia}
+          />
         </Link>
       </CardActionArea>
       <Box sx={localTheme.box}>
-        <Typography 
-        variant="h5" 
-        // height="48px" 
-        gutterBottom 
-        color={palette.primary.contrastText}
-        sx={{ overflow: 'hidden', height: '48px' }}
+        <Typography
+          variant="h5"
+          // height="48px"
+          gutterBottom
+          color={palette.primary.contrastText}
+          sx={{ overflow: "hidden", height: "48px" }}
         >
           {name}
         </Typography>
@@ -132,14 +133,9 @@ const MenuItemCard = ({ name, price, img, id }: Props) => {
           $ {price}
         </Typography>
       </Box>
-      <Avatar
-        onClick={() => handleAddToCart(id)}
-        sx={localTheme.avatar}
-      >
+      <Avatar onClick={() => handleAddToCart(id)} sx={localTheme.avatar}>
         <IconButton sx={{ margin: "10px" }}>
-          <AddShoppingCartIcon
-            sx={{ color: "#85ada1" }}
-          />
+          <AddShoppingCartIcon sx={{ color: "#85ada1" }} />
           {/* {IsOnCart ? (
             <ShoppingCartIcon
               sx={{

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useGetMenuItemQuery } from "../api/menuItemApi";
 
 const MenuItemDetails = () => {
+  const host = import.meta.env.VITE_REACT_URL;
 
   // Get Id - Match the route key
   const { menuItemId } = useParams();
@@ -15,34 +16,34 @@ const MenuItemDetails = () => {
   // Navigate
   // const navigate = useNavigate();
 
-  
   return (
     <Box maxWidth="lg" paddingX={4} sx={{ margin: "auto" }}>
-      {(isLoading) ? (
+      {isLoading ? (
         <p>Still Loading</p>
       ) : (
         <Grid container spacing={2} maxWidth="xl">
           <Grid item xs={12} sm={7}>
-          <Box sx={{ 
-              aspectRatio: 10 / 10, 
-              borderRight: "4px solid",
-              borderColor: "#85ada1", 
-            }}>
-            <img
-              src={`http://localhost:5173/${data.result.image}`}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: 'cover'
+            <Box
+              sx={{
+                aspectRatio: 10 / 10,
+                borderRight: "4px solid",
+                borderColor: "#85ada1",
               }}
-              loading="lazy"
-            />
+            >
+              <img
+                src={`${host + "/" + data.result.image}`}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+                loading="lazy"
+              />
             </Box>
           </Grid>
 
-
           <Grid item xs={12} sm={5}>
-            <Details item={data.result}/>
+            <Details item={data.result} />
           </Grid>
         </Grid>
       )}

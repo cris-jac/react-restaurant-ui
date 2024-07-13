@@ -1,22 +1,25 @@
 # Restaurant UI
+
 ### React App
 
 ## Requirements
-* React 18
-* Restaurant API (https://github.com/cris-jac/restaurantApi-NetSql.git)
+
+- React 18
+- Restaurant API (https://github.com/cris-jac/sql-dotnet-restaurant-api.git)
 
 ## Installation
+
 1. Clone from github, using this command:\
-```git clone https://github.com/cris-jac/restaurantApi-NetSql.git```
+   `git clone https://github.com/cris-jac/sql-dotnet-restaurant-api.git`
 
 2. Navigate to the repository folder:\
-```cd restaurantUi-React```
+   `cd react-restaurant-ui`
 
 3. Install dependencies:\
-```npm install```
+   `npm install`
 
-* If required, modify API URL (.env):\
-VITE_API_URL="```Your_API_url```"
+- If required, modify API URL (.env):\
+  VITE_API_URL="`Your_API_url`"
 
 4. Run application:\
-```npm run dev```
+   `npm run dev`
