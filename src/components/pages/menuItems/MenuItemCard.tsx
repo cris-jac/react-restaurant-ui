@@ -114,7 +114,8 @@ const MenuItemCard = ({ name, price, img, id }: Props) => {
             component="img"
             height="240"
             // image={`http://localhost:5173/${img}`}
-            image={`${import.meta.env.VITE_REACT_URL}/${img}`}
+            // image={`${import.meta.env.VITE_REACT_URL}/${img}`}
+            image={`/${img}`}
             alt={name}
             sx={localTheme.cardMedia}
           />
