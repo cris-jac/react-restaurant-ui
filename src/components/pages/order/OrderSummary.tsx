@@ -107,7 +107,7 @@ const OrderSummary = ({ data, userInput }: OrderSummaryProps) => {
       >
         <Typography variant="subtitle1">Total:</Typography>
         <Typography variant="subtitle1">
-          $ {priceFormatter(data.cartTotal)}
+          {priceFormatter(data.cartTotal)}
         </Typography>
       </Box>
     </Box>
