@@ -24,6 +24,7 @@ import {
 } from "../../../storage/redux/cartItemSlice";
 import UserModel from "../../../interfaces/UserModel";
 import { RootState } from "../../../storage/redux/store";
+import { priceFormatter } from "../../../utility/priceFormatter";
 
 interface Props {
   items: CartItemModel[];
@@ -42,7 +43,7 @@ const ShoppingCartTable = ({ items }: Props) => {
     },
     icon: {
       color: palette.text.secondary,
-      fontSize: '18px'
+      fontSize: "18px",
     },
   };
 
@@ -53,7 +54,9 @@ const ShoppingCartTable = ({ items }: Props) => {
   const [updateShoppingCart] = useUpdateShoppingCartMutation();
   // UserId hardcoded
   // const userId = "abd83cf0-2b6a-49a9-9965-568ec7d4cdf3";
-  const userData: UserModel = useSelector((state: RootState) => state.userAuthStore);
+  const userData: UserModel = useSelector(
+    (state: RootState) => state.userAuthStore
+  );
 
   // Store get state
   // const { cartItems } = useSelector((state: RootState) => state.shoppingCartStore);
@@ -74,7 +77,7 @@ const ShoppingCartTable = ({ items }: Props) => {
       updateShoppingCart({
         menuItemId: cartItem.menuItem.id,
         updateQuantityBy: 0,
-        userId: userData.id //userId,
+        userId: userData.id, //userId,
       });
     } else {
       // Store update quantity
@@ -88,7 +91,7 @@ const ShoppingCartTable = ({ items }: Props) => {
       updateShoppingCart({
         menuItemId: cartItem.menuItem.id,
         updateQuantityBy: updateQuantityBy,
-        userId: userData.id  //userId,
+        userId: userData.id, //userId,
       });
     }
   };
@@ -101,22 +104,25 @@ const ShoppingCartTable = ({ items }: Props) => {
     >
       <Table>
         <TableHead>
-          <TableRow 
-            sx={{ borderBottom: '1px solid', borderColor: palette.primary.contrastText }}
+          <TableRow
+            sx={{
+              borderBottom: "1px solid",
+              borderColor: palette.primary.contrastText,
+            }}
           >
-            <TableCell  align="left">
+            <TableCell align="left">
               <Typography color={contrast}>Product</Typography>
             </TableCell>
-            <TableCell  align="center">
+            <TableCell align="center">
               <Typography color={contrast}>Price</Typography>
             </TableCell>
-            <TableCell  align="center">
+            <TableCell align="center">
               <Typography color={contrast}>Quantity</Typography>
             </TableCell>
-            <TableCell  align="center">
+            <TableCell align="center">
               <Typography color={contrast}>Subtotal</Typography>
             </TableCell>
-            <TableCell  align="center"></TableCell>
+            <TableCell align="center"></TableCell>
           </TableRow>
         </TableHead>
 
@@ -131,7 +137,7 @@ const ShoppingCartTable = ({ items }: Props) => {
                     alignItems: "center",
                   }}
                 >
-                  <Avatar 
+                  <Avatar
                     alt={item.menuItem.name}
                     src={item.menuItem.image}
                     // sx={{
@@ -147,7 +153,7 @@ const ShoppingCartTable = ({ items }: Props) => {
 
               <TableCell align="center" width="15%">
                 <Typography color={contrast} variant="body2">
-                  $ {item.menuItem.priceInUSD}
+                  {priceFormatter(item.menuItem.priceInUSD)}
                 </Typography>
               </TableCell>
 
@@ -187,21 +193,21 @@ const ShoppingCartTable = ({ items }: Props) => {
 
               <TableCell align="center">
                 <Typography color={contrast} variant="body2">
-                  $ {item.menuItem.priceInUSD * item.quantity}
+                  {priceFormatter(item.menuItem.priceInUSD * item.quantity)}
                 </Typography>
               </TableCell>
 
-              <TableCell align="center" sx={
-                { 
-                    alignItems: 'center',
-                    px: '1px'
-                }
-              }>
+              <TableCell
+                align="center"
+                sx={{
+                  alignItems: "center",
+                  px: "1px",
+                }}
+              >
                 <IconButton onClick={() => handleItemQuantity(0, item)}>
                   <ClearIcon sx={localTheme.icon} />
                 </IconButton>
               </TableCell>
-
             </TableRow>
           ))}
         </TableBody>

@@ -6,6 +6,9 @@ import { PaymentForm } from "../components/pages/payment";
 import { OrderSummary } from "../components/pages/order";
 
 const Payment = () => {
+  const publishableKey =
+    "pk_test_51OTvKLJLFObLsyqNTKl3vrJVSXCi6dwpri7FyJ5pbJdAjD16yZK8kH5ehK6t1kn34O125TA024JugD1vDQ8OpFqZ00Erh0BvOa";
+
   // Recover state from checkout
   const {
     state: { apiResult, userInput },
@@ -16,8 +19,10 @@ const Payment = () => {
   // stripe config
   const stripePromise = loadStripe(
     // "pk_test_51OTvKLJLFObLsyqNTKl3vrJVSXCi6dwpri7FyJ5pbJdAjD16yZK8kH5ehK6t1kn34O125TA024JugD1vDQ8OpFqZ00Erh0BvOa"
-    import.meta.env.STRIPE_PUBLIC_KEY
+    // import.meta.env.STRIPE_PUBLIC_KEY
+    publishableKey
   );
+  console.log(stripePromise);
   const options = {
     // passing the client secret obtained from the server
     clientSecret: apiResult.clientSecret,

@@ -21,6 +21,7 @@ import useStyledToast from "../../../helpers/useStyledToast";
 import UserModel from "../../../interfaces/UserModel";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../storage/redux/store";
+import { priceFormatter } from "../../../utility/priceFormatter";
 // import { MenuItemModel } from "../../../interfaces";
 
 interface Props {
@@ -130,7 +131,7 @@ const MenuItemCard = ({ name, price, img, id }: Props) => {
           {name}
         </Typography>
         <Typography variant="h4" color={palette.text.secondary}>
-          $ {price}
+          {priceFormatter(price)}
         </Typography>
       </Box>
       <Avatar onClick={() => handleAddToCart(id)} sx={localTheme.avatar}>
