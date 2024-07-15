@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useGetMenuItemQuery } from "../api/menuItemApi";
 
 const MenuItemDetails = () => {
-  const host = import.meta.env.VITE_REACT_URL;
+  // const host = import.meta.env.VITE_REACT_URL;
 
   // Get Id - Match the route key
   const { menuItemId } = useParams();
@@ -31,7 +31,7 @@ const MenuItemDetails = () => {
               }}
             >
               <img
-                src={`${host + "/" + data.result.image}`}
+                src={`/${data.result.image}`}
                 style={{
                   width: "100%",
                   height: "100%",
