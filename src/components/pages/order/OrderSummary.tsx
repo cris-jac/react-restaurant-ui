@@ -86,8 +86,7 @@ const OrderSummary = ({ data, userInput }: OrderSummaryProps) => {
               <TableRow>
                 <TableCell>{item.menuItem.name}</TableCell>
                 <TableCell colSpan={1}>
-                  `${priceFormatter(item.menuItem.priceInUSD)} x {item.quantity}{" "}
-                  =`
+                  {priceFormatter(item.menuItem.priceInUSD)} x {item.quantity} =
                 </TableCell>
                 <TableCell colSpan={1}>
                   {priceFormatter(item.menuItem.priceInUSD * item.quantity)}

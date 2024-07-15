@@ -43,7 +43,6 @@ const Details = ({ item }: Props) => {
   // Define Api mutation
   const [updateShoppingCart] = useUpdateShoppingCartMutation();
   // Update user Id
-  // const userId = "abd83cf0-2b6a-49a9-9965-568ec7d4cdf3";
   const userData: UserModel = useSelector(
     (state: RootState) => state.userAuthStore
   );
@@ -58,7 +57,6 @@ const Details = ({ item }: Props) => {
     return;
   };
 
-  //
   const handleUpdateCart = async (menuItemId: number) => {
     // If user is not logged in
     if (!userData.id) {
@@ -83,7 +81,6 @@ const Details = ({ item }: Props) => {
         {item.name}
       </Typography>
       <Typography
-        // gutterBottom
         variant="h3"
         marginBottom={2}
         color="rgba(0,0,0,0)"
@@ -92,7 +89,6 @@ const Details = ({ item }: Props) => {
           bgcolor: "#85ada1",
           color: palette.background.default,
           borderLeft: "4px solid #85ada1",
-          // textAlign: 'left'
         }}
       >
         $ {item.priceInUSD}
@@ -199,7 +195,6 @@ const Details = ({ item }: Props) => {
           display: "flex",
           alignContent: "center",
         }}
-        // maxWidth="100%"
       >
         <NavLink to={"/shoppingCart"} style={{ width: "100%" }}>
           <Button
