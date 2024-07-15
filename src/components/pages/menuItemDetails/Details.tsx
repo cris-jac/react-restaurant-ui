@@ -107,7 +107,7 @@ const Details = ({ item }: Props) => {
           display: "flex",
           flexDirection: isMdScreen ? "column" : "row",
           justifyContent: "space-between",
-          alignContent: "center"
+          alignContent: "center",
         }}
       >
         <Box
@@ -176,7 +176,7 @@ const Details = ({ item }: Props) => {
             borderRadius: "1px",
             marginTop: 1,
             marginX: 1,
-            alignmentBaseline: 'auto',
+            alignmentBaseline: "auto",
             paddingX: 2,
             borderColor: palette.text.secondary,
             color: palette.text.secondary,
@@ -190,7 +190,7 @@ const Details = ({ item }: Props) => {
           onClick={() => handleUpdateCart(item.id)}
           startIcon={<AddShoppingCartIcon />}
         >
-          Aniadir al carro
+          Añadir al carro
         </Button>
       </Box>
 
@@ -215,7 +215,7 @@ const Details = ({ item }: Props) => {
                 color: palette.text.secondary,
                 bgcolor: palette.info.light,
               },
-              width: "100%"
+              width: "100%",
             }}
             endIcon={<ShoppingCartCheckoutIcon />}
           >
