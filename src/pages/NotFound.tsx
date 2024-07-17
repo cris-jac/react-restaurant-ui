@@ -15,7 +15,10 @@ const NotFound = () => {
         alignItems: "center",
       }}
     >
-      <Typography sx={{ fontSize: "64px", fontFamily: typography.h1.fontFamily }} gutterBottom>
+      <Typography
+        sx={{ fontSize: "64px", fontFamily: typography.h1.fontFamily }}
+        gutterBottom
+      >
         NOT FOUND
       </Typography>
       <Typography variant="subtitle2" gutterBottom>
@@ -33,6 +36,7 @@ const NotFound = () => {
             width: "100%",
             height: "100%",
           }}
+          alt="not-found-img"
         />
       </Box>
       <Box

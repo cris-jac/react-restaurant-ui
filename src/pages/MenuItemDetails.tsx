@@ -38,6 +38,7 @@ const MenuItemDetails = () => {
                   objectFit: "cover",
                 }}
                 loading="lazy"
+                alt={data.result.name}
               />
             </Box>
           </Grid>

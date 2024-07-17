@@ -6,7 +6,7 @@ import { BannerItemModel } from "../../../interfaces";
 // import mg from "./../../../assets/items/asnim-ansari-SqYmTDQYMjo-unsplash_4_11zon.jpg"
 
 interface Props {
-    items: BannerItemModel[];
+  items: BannerItemModel[];
 }
 
 // const items: Props = [
@@ -16,7 +16,7 @@ interface Props {
 // ];
 
 const ImageBanner = ({ items }: Props) => {
-// Styling
+  // Styling
   const theme = useTheme();
   const isSmScreen = useMediaQuery(theme.breakpoints.down("md"));
   const localTheme = {
@@ -77,7 +77,11 @@ const ImageBanner = ({ items }: Props) => {
         align="center"
         color={theme.palette.info.contrastText}
       >
-        Indulge in a diverse array of vegetarian dishes meticulously crafted to tantalize your taste buds. Whether you crave bold flavors or crave diverse textures, our menu offers a variety of options to suit every palate, ensuring a delightful dining experience for all discerning vegetarians.
+        Indulge in a diverse array of vegetarian dishes meticulously crafted to
+        tantalize your taste buds. Whether you crave bold flavors or crave
+        diverse textures, our menu offers a variety of options to suit every
+        palate, ensuring a delightful dining experience for all discerning
+        vegetarians.
       </Typography>
 
       <Box marginY={2} sx={localTheme.imagesContainer}>
@@ -88,7 +92,8 @@ const ImageBanner = ({ items }: Props) => {
                 src={item?.picture}
                 height={isSmScreen ? 360 : 280}
                 width={isSmScreen ? 360 : 280}
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: "cover" }}
+                alt={index.toString()}
               />
             </Box>
             <Box sx={localTheme.typoBox}>
@@ -104,85 +109,6 @@ const ImageBanner = ({ items }: Props) => {
           </Box>
         ))}
       </Box>
-
-          {/* <img src={"./../../../assets/items/vinitha-v-aApxuprXL_4-unsplash.jpg"}></img> */}
-          {/* <img src={mg} /> */}
-
-      {/* <Grid 
-      container maxWidth="lg" 
-      paddingX={2} 
-      spacing={2} 
-      sx={{ 
-        position: 'relative', 
-        // margin: 'auto' 
-        }}>
-        {items.map((item, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={4}
-            height='width'
-            key={index}
-            // sx={{
-            //   borderTop: "4px solid",
-            //   borderColor: theme.palette.background.default,
-            //   filter: "saturate(75%)",
-            //   ":hover": {
-            //     filter: "saturate(100%)",
-            //   },
-            //   // borderTop: "4px solid",
-            //   // borderColor: theme.palette.background.default,
-            //   // filter: 'saturate(75%)',
-            //   // ":hover": {
-            //   //     filter: 'saturate(100%)'
-            // }}
-          >
-            <Box
-              sx={{
-                borderTop: "4px solid",
-                borderColor: theme.palette.background.default,
-                filter: "saturate(75%)",
-                ":hover": {
-                  filter: "saturate(100%)",
-                },
-                height: '100%',
-                width: '100%',
-                overflow: 'hidden'
-              }}
-            >
-                <img src={image}  />
-
-            </Box>
-
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                position: "relative",
-                bottom: "40px",
-              }}
-            >
-              <Typography
-                variant="h4"
-                paddingX={1}
-                //   color={palette.text.secondary}
-                color={theme.palette.primary.contrastText}
-                sx={{
-                  // bgcolor: palette.background.default,
-                  bgcolor: theme.palette.secondary.light,
-                  // bgcolor: palette.primary.main,
-                  borderBottom: "4px solid",
-                  // borderColor: "#C2D6D0",
-                  borderColor: theme.palette.background.default,
-                }}
-              >
-                {item.name}
-              </Typography>
-            </Box>
-
-          </Grid>
-        ))}
-      </Grid> */}
     </Box>
   );
 };

@@ -83,6 +83,7 @@ const AboutText = () => {
             width: "300px",
             objectFit: "cover",
           }}
+          alt="about-text-image"
         />
       </Box>
     </Container>
