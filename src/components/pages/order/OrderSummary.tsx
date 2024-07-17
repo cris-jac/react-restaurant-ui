@@ -59,26 +59,6 @@ const OrderSummary = ({ data, userInput }: OrderSummaryProps) => {
         Order
       </Typography>
 
-      {/* <Box>
-            {data.cartItems.map((item) => (
-                <Box sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    alignContent: 'center',
-                    borderTop: '1px solid',
-                    borderBottom: '1px solid',
-                    borderColor: '#b2b2b2',
-                }}
-                key={item.id}
-                padding={1}>
-                    <Typography variant="body2">{item.menuItem.name}</Typography>
-                    <Typography variant="body2">$ {item.menuItem.priceInUSD} x {item.quantity} =</Typography>
-                    <Typography variant="body2">$ {item.menuItem.priceInUSD * item.quantity}</Typography>
-                </Box>
-            ))}
-        </Box> */}
-
       <Box>
         <Table>
           <TableBody>
